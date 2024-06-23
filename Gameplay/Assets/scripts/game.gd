@@ -37,7 +37,6 @@ func _process(_delta):
 	else:
 		if Input.is_action_just_pressed("Shoot") && GameManager.decryptValue(GameManager.playerPuckCount) > 0 && GameManager.playerIsAlive:
 			var puck = PUCK.instantiate()
-			puck_container.get_child_count()
 			puck.name = "Puck" + str(randf())
 			puck.position = player.position
 			puck.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
@@ -46,7 +45,7 @@ func _process(_delta):
 			part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
 			shoot.play()
 			puck_container.add_child((puck))
-			player.add_child(part)
+			puck_container.add_child(part)
 			Globals.user_prefs["PucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksShot"])
 			#add_child(puck)
 			#add_child(part)
@@ -103,27 +102,30 @@ func givePowerup():
 	#default power up is score increase?
 	#Figure out way to track values its already chosen. array maybe and pass that in and chooce a val until there isn't any left or something like that.
 	#then default to increasing score
+	GameManager.givePowerup = false
+	var values = []
 	
-	while GameManager.givePowerup == true:
-		var powerUpToGive = randi_range(1, TOTALPU)
-		match powerUpToGive:
+	if GameManager.playerHealth < 5:
+		values.append(1)
+	if !GameManager.hasSpeedBoost:
+		values.append(2)
+	
+	if values.size() > 1:
+		var selectedValue = values.pick_random()
+		match selectedValue:
 			1:
-				if GameManager.decryptValue(GameManager.playerHealth) == 5:
-					givePowerup()
-				else:
-					GameManager.increaseHealth()
-					GameManager.givePowerup = false
+				GameManager.increaseHealth()
 			2:
-				if GameManager.hasSpeedBoost:
-					givePowerup()
-				else:
-					GameManager.hasSpeedBoost = true
-					speed_boost.visible = true
-					GameManager.givePowerup = false
-					Globals.user_prefs["SpeedBoostsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsAcquired"])
+				GameManager.hasSpeedBoost = true
+				speed_boost.visible = true
+				Globals.user_prefs["SpeedBoostsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsAcquired"])
+				
+	else:
+		GameManager.increaseScore()
+		GameManager.increaseScore()
 	
 	Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
-	print(Globals.user_prefs["TotalPowerupsAcquired"])
+	print(Globals.user_prefs.decryptValue(Globals.user_prefs["TotalPowerupsAcquired"]))
 
 func goto_main_menu():
 	GameManager.currentState = GameManager.GameState.MainMenu

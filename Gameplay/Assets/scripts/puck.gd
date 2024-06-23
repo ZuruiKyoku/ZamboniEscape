@@ -21,7 +21,8 @@ func _ready(golden = false):
 		isGolden = true
 	else:
 		GameManager.decreasePucks()
-		direction  = (get_global_mouse_position() - position).normalized()
+	
+	direction  = (get_global_mouse_position() - position).normalized()
 	
 func _physics_process(delta):
 	#position += speed*delta*direction

@@ -57,14 +57,11 @@ func increaseScore():
 	
 func increasePucks():
 	var tempPucks = decryptValue(playerPuckCount)
-	Globals.user_prefs.pucksCollected += 1
-	print(Globals.user_prefs.pucksCollected)
 	tempPucks += 1
 	playerPuckCount = encryptValue(tempPucks)
 	
 func decreasePucks():
 	var tempPucks = decryptValue(playerPuckCount)
-	#Globals.user_prefs.pucksShot += 1
 	tempPucks -= 1
 	playerPuckCount = encryptValue(tempPucks)
 
