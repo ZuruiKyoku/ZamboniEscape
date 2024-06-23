@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0gxqvnm4wbyy"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/Trail2D.gd" id="1_gy0u8"]
+
+[node name="Trail2D" type="Line2D"]
+show_behind_parent = true
+texture_repeat = 2
+texture_mode = 1
+script = ExtResource("1_gy0u8")

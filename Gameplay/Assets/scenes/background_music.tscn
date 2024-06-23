@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2rwsqq07wxcn"]
+
+[ext_resource type="AudioStream" uid="uid://dfcc581jirhi7" path="res://Gameplay/Assets/audio/snd_music.wav" id="1_nfvcj"]
+[ext_resource type="AudioStream" uid="uid://dkpc8tjcg25u0" path="res://Gameplay/Assets/audio/areaNoise.mp3" id="2_8rsya"]
+
+[node name="Node" type="Node"]
+process_mode = 3
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_nfvcj")
+autoplay = true
+bus = &"Music"
+
+[node name="ArenaNoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8rsya")
+autoplay = true
+bus = &"Music"

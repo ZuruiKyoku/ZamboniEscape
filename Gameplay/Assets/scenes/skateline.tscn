@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqqtobpwxxub4"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/skateline.gd" id="1_0taxu"]
+[ext_resource type="Texture2D" uid="uid://kv0yxiifdie2" path="res://Gameplay/Assets/sprites/spr_skateline.png" id="1_7p4rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yks3h"]
+size = Vector2(2, 20)
+
+[node name="Skateline" type="CharacterBody2D"]
+script = ExtResource("1_0taxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7p4rm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_yks3h")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

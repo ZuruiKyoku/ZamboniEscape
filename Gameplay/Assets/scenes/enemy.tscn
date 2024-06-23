@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://byw2biqssn885"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/Enemy.gd" id="1_4jc5v"]
+[ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="2_k15u8"]
+[ext_resource type="Texture2D" uid="uid://qsbrr55shqnl" path="res://Gameplay/Assets/sprites/spr_zamline.png" id="3_ixq3a"]
+[ext_resource type="PackedScene" uid="uid://cav84dmotyy3o" path="res://Gameplay/Assets/scenes/killzone.tscn" id="4_wrbxg"]
+[ext_resource type="Texture2D" uid="uid://duo7dp5jmi4v5" path="res://Gameplay/Assets/sprites/spr_zambline.png" id="5_53uov"]
+[ext_resource type="PackedScene" uid="uid://0gxqvnm4wbyy" path="res://Gameplay/Assets/scenes/trail_2d.tscn" id="6_i5xj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ar0p"]
+size = Vector2(53, 63)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_mask = 13
+script = ExtResource("1_4jc5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k15u8")
+
+[node name="Zamline" type="CPUParticles2D" parent="."]
+visible = false
+amount = 25
+speed_scale = 5.0
+texture = ExtResource("3_ixq3a")
+particle_flag_align_y = true
+gravity = Vector2(0, 0)
+
+[node name="Killzone" parent="." instance=ExtResource("4_wrbxg")]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0.5, -0.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_1ar0p")
+
+[node name="RedZamline" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_53uov")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_1ar0p")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-24, 0)
+
+[node name="Trail2D" parent="Node2D" instance=ExtResource("6_i5xj2")]
+position = Vector2(24, 0)
+width = 55.0
+texture = ExtResource("3_ixq3a")

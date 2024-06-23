@@ -1,0 +1,101 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://ddek6g823vyyv"]
+
+[ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="2_nfoce"]
+[ext_resource type="Texture2D" uid="uid://wed4483fo1s2" path="res://Gameplay/Assets/sprites/Icons/down.png" id="3_ea6lg"]
+[ext_resource type="FontFile" uid="uid://dao3xlolmrfv2" path="res://Gameplay/Assets/fonts/Kenney Pixel.ttf" id="3_j0ost"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crheo"]
+bg_color = Color(0.503941, 0.662987, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gkrm"]
+bg_color = Color(0.503941, 0.662987, 1, 1)
+border_width_bottom = 5
+border_color = Color(0.0407889, 0.265827, 0.999993, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7xro"]
+bg_color = Color(0, 0.14902, 1, 1)
+border_width_bottom = 5
+border_color = Color(0.00198063, 0, 0.501056, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db38i"]
+bg_color = Color(0.00261105, 0, 0.568843, 1)
+border_width_bottom = 5
+border_color = Color(0.000777215, 1.44392e-07, 0.32156, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvgsf"]
+bg_color = Color(0.672305, 1.76881e-06, 6.257e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lya8g"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b43rm"]
+color = Color(0, 0.14902, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ec2cc"]
+content_margin_right = 10.0
+
+[resource]
+Button/constants/icon_max_width = 40
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("3_j0ost")
+Button/styles/focus = SubResource("StyleBoxFlat_crheo")
+Button/styles/hover = SubResource("StyleBoxFlat_3gkrm")
+Button/styles/normal = SubResource("StyleBoxFlat_c7xro")
+Button/styles/pressed = SubResource("StyleBoxFlat_db38i")
+Fonts/fonts/large = ExtResource("3_j0ost")
+Fonts/fonts/normal = ExtResource("3_j0ost")
+HSlider/icons/grabber = ExtResource("2_nfoce")
+HSlider/icons/grabber_highlight = ExtResource("2_nfoce")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_rvgsf")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_lya8g")
+HSlider/styles/slider = SubResource("StyleBoxLine_b43rm")
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("3_j0ost")
+Label/styles/normal = null
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("3_j0ost")
+OptionButton/font_sizes/font_size = 36
+OptionButton/fonts/font = ExtResource("3_j0ost")
+OptionButton/icons/arrow = ExtResource("3_ea6lg")
+RichTextLabel/fonts/normal_font = ExtResource("3_j0ost")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_ec2cc")
+TabContainer/font_sizes/font_size = 36
+TabContainer/fonts/font = ExtResource("3_j0ost")

@@ -1,0 +1,242 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvlyuvnppna0p"]
+
+[ext_resource type="Script" path="res://Menus/Leaderboards.gd" id="1_xqgml"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_xmp5m"]
+[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="3_tqumd"]
+[ext_resource type="Texture2D" uid="uid://blcw7rpjefaqq" path="res://Gameplay/Assets/sprites/Icons/return.png" id="4_hqfh4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2p167"]
+bg_color = Color(0, 0, 0, 0.396078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7msii"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvo24"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvm4d"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 0.768627)
+
+[sub_resource type="Animation" id="Animation_ob2fa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_in30s"]
+resource_name = "Spring_In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3ggre"]
+resource_name = "Spring_Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tud41"]
+_data = {
+"RESET": SubResource("Animation_ob2fa"),
+"Spring_In": SubResource("Animation_in30s"),
+"Spring_Out": SubResource("Animation_3ggre")
+}
+
+[node name="Leaderboards" type="CanvasLayer"]
+script = ExtResource("1_xqgml")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+theme = ExtResource("2_xmp5m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2p167")
+
+[node name="BackgroundPanel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -300.0
+offset_right = 375.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7msii")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BackgroundPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_xmp5m")
+theme_override_font_sizes/font_size = 60
+text = "Leaderboards"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvo24")
+
+[node name="ScoreContiner" type="GridContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rank" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_xmp5m")
+theme_override_font_sizes/font_size = 36
+text = "Rank"
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Score"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvo24")
+
+[node name="ColorRect" type="ColorRect" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/ScoreContiner/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("2_xmp5m")
+text = "Main Menu"
+icon = ExtResource("3_tqumd")
+
+[node name="Refresh" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Refresh"
+icon = ExtResource("4_hqfh4")
+
+[node name="Loading" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nvm4d")
+
+[node name="Label" type="Label" parent="Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xmp5m")
+theme_override_font_sizes/font_size = 72
+text = "Getting Scores..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tud41")
+}
+
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/Refresh" to="." method="_on_refresh_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

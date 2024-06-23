@@ -1,0 +1,473 @@
+[gd_scene load_steps=18 format=3 uid="uid://bh102q4hdb15q"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/game.gd" id="1_3hnyu"]
+[ext_resource type="PackedScene" uid="uid://cttou5l6l7syr" path="res://Gameplay/Assets/scenes/player.tscn" id="1_jppca"]
+[ext_resource type="PackedScene" uid="uid://byw2biqssn885" path="res://Gameplay/Assets/scenes/enemy.tscn" id="2_w5h8r"]
+[ext_resource type="Texture2D" uid="uid://dh4ue6dpmwvnf" path="res://Gameplay/Assets/sprites/bck_main.png" id="3_kh6q3"]
+[ext_resource type="AudioStream" uid="uid://m1iqagpeyh5i" path="res://Gameplay/Assets/audio/snd_shoot.wav" id="5_sipkx"]
+[ext_resource type="Texture2D" uid="uid://3c6lqq3b4fx1" path="res://Gameplay/Assets/sprites/Heart.png" id="7_5h3jx"]
+[ext_resource type="PackedScene" uid="uid://bf281qsl5ww6g" path="res://Gameplay/Assets/scenes/center_ice.tscn" id="7_prd5j"]
+[ext_resource type="PackedScene" uid="uid://cy57g7rktp05k" path="res://Gameplay/Assets/scenes/goal.tscn" id="8_5etk1"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="9_frp85"]
+[ext_resource type="AudioStream" uid="uid://du3jolugg7sik" path="res://Gameplay/Assets/audio/ready.ogg" id="10_t505l"]
+[ext_resource type="AudioStream" uid="uid://l1stk5hadry2" path="res://Gameplay/Assets/audio/begin.ogg" id="11_347yi"]
+[ext_resource type="Texture2D" uid="uid://dgfsxrcafk4xi" path="res://Gameplay/Assets/sprites/Icons/fastForward.png" id="12_8a37s"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ykby1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg7qr"]
+size = Vector2(1147, 507)
+
+[sub_resource type="Animation" id="Animation_ncj58"]
+resource_name = "GameStart"
+length = 2.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Readyup/Ready:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Readyup/Ready:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.490438, 0.0, 0.785398]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Readyup/Go:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.2, 1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.785398, 0.0, -0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Readyup/Go:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2, 1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Readyup/Ready:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Readyup/Go:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Readyup/ReadySound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Readyup/GoSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cejuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Readyup/Ready:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Readyup/Ready:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Readyup/Go:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Readyup/Go:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Readyup/Ready:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Readyup/Go:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Readyup/ReadySound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Readyup/GoSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvmfv"]
+_data = {
+"GameStart": SubResource("Animation_ncj58"),
+"RESET": SubResource("Animation_cejuf")
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3hnyu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -500
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -750.0
+offset_right = 1000.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_kh6q3")
+
+[node name="Player" parent="." instance=ExtResource("1_jppca")]
+unique_name_in_owner = true
+z_index = 20
+position = Vector2(0, 25)
+
+[node name="Enemy" parent="." instance=ExtResource("2_w5h8r")]
+unique_name_in_owner = true
+z_index = 20
+position = Vector2(-455, 195)
+
+[node name="Borders" type="Node" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, -309)
+rotation = 3.14159
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
+shape = SubResource("WorldBoundaryShape2D_ykby1")
+
+[node name="Bottom" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, 360)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
+shape = SubResource("WorldBoundaryShape2D_ykby1")
+
+[node name="Left" type="StaticBody2D" parent="Borders"]
+position = Vector2(-640, 0)
+rotation = 1.5708
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
+shape = SubResource("WorldBoundaryShape2D_ykby1")
+
+[node name="Right" type="StaticBody2D" parent="Borders"]
+position = Vector2(640, 0)
+rotation = 4.71239
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
+shape = SubResource("WorldBoundaryShape2D_ykby1")
+
+[node name="BottomLeft" type="StaticBody2D" parent="Borders"]
+collision_mask = 7
+
+[node name="BottomLeft" type="CollisionPolygon2D" parent="Borders/BottomLeft"]
+polygon = PackedVector2Array(-569, 360, -588, 350, -610, 333, -627, 311, -640, 287, -640, 360)
+
+[node name="TopLeft" type="StaticBody2D" parent="Borders"]
+collision_mask = 7
+
+[node name="TopLet" type="CollisionPolygon2D" parent="Borders/TopLeft"]
+position = Vector2(-280, 330)
+rotation = 1.57079
+polygon = PackedVector2Array(-569, 360, -588, 350, -610, 333, -627, 311, -640, 287, -640, 360)
+
+[node name="TopRight" type="StaticBody2D" parent="Borders"]
+collision_mask = 7
+
+[node name="TopRight" type="CollisionPolygon2D" parent="Borders/TopRight"]
+position = Vector2(1, 49)
+rotation = 3.14159
+polygon = PackedVector2Array(-569, 360, -588, 350, -610, 333, -627, 311, -640, 287, -640, 360)
+one_way_collision = true
+
+[node name="BottomRight" type="StaticBody2D" parent="Borders"]
+collision_mask = 7
+
+[node name="BottomRight" type="CollisionPolygon2D" parent="Borders/BottomRight"]
+position = Vector2(280, -280)
+rotation = -1.57079
+polygon = PackedVector2Array(-569, 360, -588, 350, -610, 333, -627, 311, -640, 287, -640, 360)
+
+[node name="PuckCountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -472.0
+offset_top = -350.0
+offset_right = -298.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Pucks: 0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 248.0
+offset_top = -350.0
+offset_right = 422.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_sipkx")
+bus = &"SFX"
+
+[node name="IncreaseScore" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="SpawnCollider" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(0.5, 26.5)
+shape = SubResource("RectangleShape2D_vg7qr")
+
+[node name="PuckSpawner" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="CenterIce" parent="." instance=ExtResource("7_prd5j")]
+position = Vector2(4, 22)
+
+[node name="LifeContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_left = -637.0
+offset_top = -357.0
+offset_right = -557.0
+offset_bottom = -325.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="HP1" type="TextureRect" parent="LifeContainer"]
+layout_mode = 2
+texture = ExtResource("7_5h3jx")
+
+[node name="HP2" type="TextureRect" parent="LifeContainer"]
+layout_mode = 2
+texture = ExtResource("7_5h3jx")
+
+[node name="HP3" type="TextureRect" parent="LifeContainer"]
+layout_mode = 2
+texture = ExtResource("7_5h3jx")
+
+[node name="HP4" type="TextureRect" parent="LifeContainer"]
+layout_mode = 2
+texture = ExtResource("7_5h3jx")
+
+[node name="HP5" type="TextureRect" parent="LifeContainer"]
+layout_mode = 2
+texture = ExtResource("7_5h3jx")
+
+[node name="NetRight" parent="." instance=ExtResource("8_5etk1")]
+position = Vector2(572, -15)
+
+[node name="NetLeft" parent="." instance=ExtResource("8_5etk1")]
+position = Vector2(-572, -13)
+scale = Vector2(-1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_mvmfv")
+}
+
+[node name="Readyup" type="Node2D" parent="."]
+process_mode = 3
+
+[node name="Ready" type="Label" parent="Readyup"]
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.00302124
+offset_top = 0.000335693
+offset_right = -0.00305176
+offset_bottom = 0.000366211
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(282.5, 113)
+theme = ExtResource("9_frp85")
+theme_override_colors/font_color = Color(0.603246, 0.603246, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 300
+text = "Ready"
+
+[node name="Go" type="Label" parent="Readyup"]
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.00119019
+offset_top = -0.00279999
+offset_right = -0.0012207
+offset_bottom = -0.00280762
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(282.5, 113)
+theme = ExtResource("9_frp85")
+theme_override_colors/font_color = Color(0, 0.611765, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Begin
+"
+
+[node name="ReadySound" type="AudioStreamPlayer2D" parent="Readyup"]
+stream = ExtResource("10_t505l")
+bus = &"VoiceOver"
+
+[node name="GoSound" type="AudioStreamPlayer2D" parent="Readyup"]
+stream = ExtResource("11_347yi")
+bus = &"VoiceOver"
+
+[node name="SpeedBoost" type="TextureRect" parent="."]
+visible = false
+offset_left = 484.0
+offset_top = -360.0
+offset_right = 534.0
+offset_bottom = -310.0
+texture = ExtResource("12_8a37s")
+
+[node name="PuckContainer" type="Node2D" parent="."]
+
+[connection signal="timeout" from="IncreaseScore" to="." method="_on_increase_score_timeout"]
+[connection signal="timeout" from="PuckSpawner" to="." method="_on_puck_spawner_timeout"]

@@ -1,0 +1,290 @@
+[gd_scene load_steps=14 format=3 uid="uid://c53d5qwva2ete"]
+
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_ml01s"]
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/game_over.gd" id="1_ymfxs"]
+[ext_resource type="Texture2D" uid="uid://cht1ff80amput" path="res://Gameplay/Assets/sprites/Icons/export.png" id="3_ipinr"]
+[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="3_wdf4w"]
+[ext_resource type="Texture2D" uid="uid://blcw7rpjefaqq" path="res://Gameplay/Assets/sprites/Icons/return.png" id="4_jna1c"]
+[ext_resource type="AudioStream" uid="uid://b42gpd3q33ypd" path="res://Gameplay/Assets/audio/game_over.ogg" id="6_08cvg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
+bg_color = Color(0, 0, 0, 0.396078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc5cq"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7p5l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckd6x"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 0.768627)
+
+[sub_resource type="Animation" id="Animation_sgdrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k4wtb"]
+resource_name = "Spring_In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wni6u"]
+_data = {
+"RESET": SubResource("Animation_sgdrj"),
+"Spring_In": SubResource("Animation_k4wtb")
+}
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_ymfxs")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcdwt")
+
+[node name="BackgroundPanel" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -196.0
+offset_right = 288.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BackgroundPanel/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="Heading" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_ml01s")
+theme_override_font_sizes/font_size = 72
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="PlayerName" type="LineEdit" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_ml01s")
+placeholder_text = "Enter Player Name"
+max_length = 15
+
+[node name="Panel3" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="Label2" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ml01s")
+theme_override_font_sizes/font_size = 48
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ml01s")
+theme_override_font_sizes/font_size = 32
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewHigh" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_ml01s")
+text = "New High Score!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="SubmitScore" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_ml01s")
+text = "Submit Score"
+icon = ExtResource("3_ipinr")
+
+[node name="Panel4" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_ml01s")
+text = "Main Menu"
+icon = ExtResource("3_wdf4w")
+
+[node name="Retry" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_ml01s")
+text = "Retry"
+icon = ExtResource("4_jna1c")
+
+[node name="Saving" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ckd6x")
+
+[node name="Label" type="Label" parent="Saving"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ml01s")
+theme_override_font_sizes/font_size = 72
+text = "Saving Score..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saved" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ckd6x")
+
+[node name="Label" type="Label" parent="Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ml01s")
+theme_override_font_sizes/font_size = 72
+text = "Score Saved!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wni6u")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_08cvg")
+
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/SubmitScore" to="." method="_on_submit_score_button_up"]
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/Retry" to="." method="_on_retry_button_up"]

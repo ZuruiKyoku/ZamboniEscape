@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdnj33x2rx3ls"]
+
+[ext_resource type="Script" path="res://Menus/leaderboard_entry.gd" id="1_t5fkg"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_yquby"]
+
+[node name="LeaderboardEntry" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -580.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme = ExtResource("1_yquby")
+script = ExtResource("1_t5fkg")
+
+[node name="Rank" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Rank"
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Score"
+horizontal_alignment = 2
+vertical_alignment = 1

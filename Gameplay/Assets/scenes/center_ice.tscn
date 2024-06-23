@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf281qsl5ww6g"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/center_ice.gd" id="1_a0uwt"]
+[ext_resource type="Texture2D" uid="uid://bpnyrg8h3xguh" path="res://Gameplay/Assets/sprites/centerIceLeft.png" id="1_co6iu"]
+[ext_resource type="Texture2D" uid="uid://b6ongyfh2sjo5" path="res://Gameplay/Assets/sprites/centerIceRight.png" id="2_h3xbj"]
+[ext_resource type="Texture2D" uid="uid://dob4n1pi4g7n4" path="res://Gameplay/Assets/sprites/centerIceBackgroundWhite.png" id="2_offwd"]
+
+[node name="CenterIce" type="Node2D"]
+position = Vector2(0, 27)
+script = ExtResource("1_a0uwt")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-2, 5)
+texture = ExtResource("2_offwd")
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(-7, 6)
+texture = ExtResource("1_co6iu")
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(-7, 6)
+texture = ExtResource("2_h3xbj")

@@ -1,0 +1,599 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlup1jvor7emq"]
+
+[ext_resource type="Script" path="res://Menus/stats.gd" id="1_acb6a"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_be3ya"]
+[ext_resource type="StyleBox" uid="uid://dxhu7deg30gdt" path="res://statStyleBox.tres" id="3_4u2t4"]
+[ext_resource type="Texture2D" uid="uid://edprf5jrmggr" path="res://Gameplay/Assets/sprites/Icons/cross.png" id="3_emp6o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
+bg_color = Color(0, 0, 0, 0.396078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc5cq"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txtle"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_6ymr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3q7vt"]
+resource_name = "Spring_In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ogile"]
+resource_name = "Spring_Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63jpn"]
+_data = {
+"RESET": SubResource("Animation_6ymr6"),
+"Spring_In": SubResource("Animation_3q7vt"),
+"Spring_Out": SubResource("Animation_ogile")
+}
+
+[node name="Stats" type="CanvasLayer"]
+script = ExtResource("1_acb6a")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+theme = ExtResource("1_be3ya")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcdwt")
+
+[node name="BackgroundPanel" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.843137)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.5
+offset_top = -300.0
+offset_right = 287.5
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
+
+[node name="Heading" type="RichTextLabel" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_right = 259.0
+offset_bottom = 54.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center][u]Stats"
+scroll_active = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 78.0
+offset_right = -25.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BackgroundPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center][u]Player Stats"
+fit_content = true
+
+[node name="PlayerContainer" type="GridContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+columns = 2
+
+[node name="PlayerLabels" type="VBoxContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Times Played"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Deaths"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Distance Skated"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Pucks Collected"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Pucks Shot"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Pucks hit"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Goals Made"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Goals Missed"
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Near Misses"
+vertical_alignment = 1
+
+[node name="PlayerValues" type="VBoxContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="TimesPlayed" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Deaths" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DistanceSkated" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PucksCollected" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PucksShot" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PucksHit" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoalsMade" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoalsMissed" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="NearMises" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PlayerContainer/PlayerValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center][u]Power-Up Stats"
+fit_content = true
+
+[node name="PowerupContainer" type="GridContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="PowerupLabels" type="VBoxContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label10" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Total Power-Ups Acquired"
+vertical_alignment = 1
+
+[node name="Spacer" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="Label11" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Golden Pucks Acquired"
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Golden Pucks Shot"
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Golden Pucks Hit"
+vertical_alignment = 1
+
+[node name="Spacer2" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="Label14" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Flame Trails Acquired"
+vertical_alignment = 1
+
+[node name="Label15" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Flame Trails Used"
+vertical_alignment = 1
+
+[node name="Label16" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Times Zamboni Hit Flame Trails"
+vertical_alignment = 1
+
+[node name="Spacer3" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="Label17" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Speed Boosts Acquired"
+vertical_alignment = 1
+
+[node name="Label18" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupLabels"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "Speed Boosts Used"
+vertical_alignment = 1
+
+[node name="PowerupValues" type="VBoxContainer" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="TotalPowerUps" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="GoldenAcquired" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoldenShot" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoldenHit" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer2" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="FlamesAcquired" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FlamesUsed" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FlamesHit" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer3" type="Panel" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtle")
+
+[node name="SpeedAcquired" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SpeedUsed" type="Label" parent="Panel/BackgroundPanel/ScrollContainer/VBoxContainer/PowerupContainer/PowerupValues"]
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_4u2t4")
+text = "00000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -45.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Close" type="Button" parent="Panel/BackgroundPanel/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_be3ya")
+text = "Close"
+icon = ExtResource("3_emp6o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_63jpn")
+}
+
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/Close" to="." method="_on_close_button_up"]
