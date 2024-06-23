@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy57g7rktp05k"]
+[gd_scene load_steps=4 format=3 uid="uid://cy57g7rktp05k"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/goal.gd" id="1_at6ar"]
 
@@ -6,12 +6,15 @@
 a = Vector2(0, 1)
 b = Vector2(0, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs462"]
+size = Vector2(54, 100)
+
 [node name="Goal" type="Node2D"]
+script = ExtResource("1_at6ar")
 
 [node name="GoalLine" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 7
-script = ExtResource("1_at6ar")
 
 [node name="Line2D" type="Line2D" parent="GoalLine"]
 points = PackedVector2Array(0, 0, 0, 80)
@@ -34,4 +37,11 @@ joint_mode = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Net"]
 polygon = PackedVector2Array(-2, 0, 26, 0, 42, 23, 42, 56, 26, 80, -2, 80, -2, 76, 24, 76, 38, 56, 38, 26, 24, 4, -2, 4)
 
-[connection signal="body_entered" from="GoalLine" to="GoalLine" method="_on_body_entered"]
+[node name="Miss" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Miss"]
+position = Vector2(15, 40)
+shape = SubResource("RectangleShape2D_cs462")
+
+[connection signal="body_exited" from="GoalLine" to="." method="_on_goal_line_body_exited"]
+[connection signal="body_exited" from="Miss" to="." method="_on_miss_body_exited"]

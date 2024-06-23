@@ -32,9 +32,12 @@ func _physics_process(delta):
 		if collider.name == "Enemy":
 			hitEnemy = true
 			if isGolden:
-				Globals.user_prefs
+				Globals.user_prefs["GoldenPucksHit"] = Globals.user_prefs.increaseValue(Globals.user_prefs["GoldenPucksHit"])
+				animation_player.play("HitEnemyGold")
+			else:
+				Globals.user_prefs["PucksHit"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksHit"])
+				animation_player.play("HitEnemy")
 			GameManager.enemyHitCount += 1
-			animation_player.play("HitEnemy")
 			GameManager.canIncreaseEnemySpeed = false
 			if GameManager.enemySpeed != 0:
 				GameManager.lastEnemySpeed = GameManager.enemySpeed

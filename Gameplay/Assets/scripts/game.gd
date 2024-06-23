@@ -45,8 +45,9 @@ func _process(_delta):
 			part.position = player.position
 			part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
 			shoot.play()
-			puck_container.add_child(part)
 			puck_container.add_child((puck))
+			player.add_child(part)
+			Globals.user_prefs["PucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksShot"])
 			#add_child(puck)
 			#add_child(part)
 			
@@ -99,22 +100,30 @@ func updateHealthBar():
 		life_container.get_node(_wNode).self_modulate = Color.WHITE
 
 func givePowerup():
-	GameManager.givePowerup = false
-	var powerUpToGive = randi_range(1, TOTALPU)
+	#default power up is score increase?
+	#Figure out way to track values its already chosen. array maybe and pass that in and chooce a val until there isn't any left or something like that.
+	#then default to increasing score
 	
-	match powerUpToGive:
-		1:
-			if GameManager.decryptValue(GameManager.playerHealth) == 5:
-				givePowerup()
-			else:
-				GameManager.increaseHealth()
-		2:
-			if GameManager.hasSpeedBoost:
-				givePowerup()
-			else:
-				GameManager.hasSpeedBoost = true
-				speed_boost.visible = true
-			
+	while GameManager.givePowerup == true:
+		var powerUpToGive = randi_range(1, TOTALPU)
+		match powerUpToGive:
+			1:
+				if GameManager.decryptValue(GameManager.playerHealth) == 5:
+					givePowerup()
+				else:
+					GameManager.increaseHealth()
+					GameManager.givePowerup = false
+			2:
+				if GameManager.hasSpeedBoost:
+					givePowerup()
+				else:
+					GameManager.hasSpeedBoost = true
+					speed_boost.visible = true
+					GameManager.givePowerup = false
+					Globals.user_prefs["SpeedBoostsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsAcquired"])
+	
+	Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
+	print(Globals.user_prefs["TotalPowerupsAcquired"])
 
 func goto_main_menu():
 	GameManager.currentState = GameManager.GameState.MainMenu
