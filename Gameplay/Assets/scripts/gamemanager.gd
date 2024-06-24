@@ -19,6 +19,7 @@ var enemySpeed:float = 1.0
 var lastEnemySpeed:float = 1.0
 var canIncreaseEnemySpeed:bool = true
 var enemyHitCount:int = 0
+var enemyJustHit = false
 
 enum GameState {MainMenu, TeamSelect, Playing, Paused, GameOver, GotoMain, GotoPlay, GotoGameOver, Quit}
 var currentState:GameState = GameState.MainMenu

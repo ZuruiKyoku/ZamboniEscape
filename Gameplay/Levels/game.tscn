@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh102q4hdb15q"]
+[gd_scene load_steps=19 format=3 uid="uid://bh102q4hdb15q"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/game.gd" id="1_3hnyu"]
 [ext_resource type="PackedScene" uid="uid://cttou5l6l7syr" path="res://Gameplay/Assets/scenes/player.tscn" id="1_jppca"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://du3jolugg7sik" path="res://Gameplay/Assets/audio/ready.ogg" id="10_t505l"]
 [ext_resource type="AudioStream" uid="uid://l1stk5hadry2" path="res://Gameplay/Assets/audio/begin.ogg" id="11_347yi"]
 [ext_resource type="Texture2D" uid="uid://dgfsxrcafk4xi" path="res://Gameplay/Assets/sprites/Icons/fastForward.png" id="12_8a37s"]
+[ext_resource type="Texture2D" uid="uid://eeafq7451f2q" path="res://Gameplay/Assets/sprites/puck_white.png" id="13_3dl8w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ykby1"]
 
@@ -466,6 +467,16 @@ offset_top = -360.0
 offset_right = 534.0
 offset_bottom = -310.0
 texture = ExtResource("12_8a37s")
+
+[node name="GoldPuck" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 545.0
+offset_top = -353.0
+offset_right = 595.0
+offset_bottom = -303.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("13_3dl8w")
 
 [node name="PuckContainer" type="Node2D" parent="."]
 

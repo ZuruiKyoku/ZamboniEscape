@@ -13,8 +13,9 @@ var PICKUPPUCK = preload("res://Gameplay/Assets/scenes/pickup_puck.tscn")
 var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var life_container = %LifeContainer
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
-@onready var speed_boost = $SpeedBoost
 @onready var puck_container = $PuckContainer
+@onready var speed_boost = $SpeedBoost
+@onready var gold_puck = $GoldPuck
 
 const TOTALPU = 2
 
@@ -35,20 +36,9 @@ func _process(_delta):
 		SceneManager.swap_scenes(SceneRegistry.main_scenes["Quit"],get_tree().root,self,"quit_to")
 		
 	else:
+		GameManager.enemySpeed = 0
 		if Input.is_action_just_pressed("Shoot") && GameManager.decryptValue(GameManager.playerPuckCount) > 0 && GameManager.playerIsAlive:
-			var puck = PUCK.instantiate()
-			puck.name = "Puck" + str(randf())
-			puck.position = player.position
-			puck.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
-			var part = shotPart.instantiate()
-			part.position = player.position
-			part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
-			shoot.play()
-			puck_container.add_child((puck))
-			puck_container.add_child(part)
-			Globals.user_prefs["PucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksShot"])
-			#add_child(puck)
-			#add_child(part)
+			shootPuck()
 			
 		puck_count_label.text = "Pucks: " + str(ceil(GameManager.decryptValue(GameManager.playerPuckCount)))
 		score_label.text = "Score: " + str(GameManager.decryptValue(GameManager.playerScore))
@@ -75,7 +65,22 @@ func _on_increase_score_timeout():
 	if GameManager.playerIsAlive:
 		GameManager.increaseScore()
 		increase_score.start(1)
-
+		
+func shootPuck():
+	var puck = PUCK.instantiate()
+	puck.shoot()
+	puck.name = "Puck" + str(randf())
+	puck.position = player.position
+	puck.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
+	var part = shotPart.instantiate()
+	part.position = player.position
+	part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
+	shoot.play()
+	puck_container.add_child((puck))
+	puck_container.add_child(part)
+	Globals.user_prefs["PucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksShot"])
+	#add_child(puck)
+	#add_child(part)
 
 func _on_puck_spawner_timeout():
 	if(GameManager.playerIsAlive):
@@ -99,33 +104,34 @@ func updateHealthBar():
 		life_container.get_node(_wNode).self_modulate = Color.WHITE
 
 func givePowerup():
-	#default power up is score increase?
-	#Figure out way to track values its already chosen. array maybe and pass that in and chooce a val until there isn't any left or something like that.
-	#then default to increasing score
 	GameManager.givePowerup = false
 	var values = []
 	
-	if GameManager.playerHealth < 5:
-		values.append(1)
+	if GameManager.decryptValue(GameManager.playerHealth) < 5:
+		values.append("health")
 	if !GameManager.hasSpeedBoost:
-		values.append(2)
+		values.append("boost")
+	if !GameManager.hasGoldenPuck:
+		values.append("gold")
 	
-	if values.size() > 1:
+	if values.size() > 0:
 		var selectedValue = values.pick_random()
 		match selectedValue:
-			1:
+			"health":
 				GameManager.increaseHealth()
-			2:
+			"boost":
 				GameManager.hasSpeedBoost = true
 				speed_boost.visible = true
 				Globals.user_prefs["SpeedBoostsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsAcquired"])
-				
+			"gold":
+				GameManager.hasGoldenPuck = true
+				gold_puck.visible = true
+				Globals.user_prefs["GoldenPucksAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["GoldenPucksAcquired"])
+		
+		Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
 	else:
 		GameManager.increaseScore()
 		GameManager.increaseScore()
-	
-	Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
-	print(Globals.user_prefs.decryptValue(Globals.user_prefs["TotalPowerupsAcquired"]))
 
 func goto_main_menu():
 	GameManager.currentState = GameManager.GameState.MainMenu

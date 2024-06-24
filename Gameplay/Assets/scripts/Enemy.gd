@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var red_zamline = $RedZamline
 @onready var spawn_collider = $"../SpawnArea/SpawnCollider".shape.extents
 @onready var trail = $Node2D/Trail2D
+@onready var animation_player = $AnimationPlayer
 
 var moveToPos = Vector2(0,25)
 
@@ -15,22 +16,27 @@ func _ready():
 
 func _physics_process(_delta):
 	if GameManager.currentState == GameManager.GameState.Playing:
-		motion = Vector2.ZERO
-		if player != null:
-			look_at(player.global_position)
-			position = position.move_toward(player.position, GameManager.enemySpeed)
+		if GameManager.enemyJustHit:
+			animation_player.play("spin_zam")
+			await animation_player.animation_finished
+			GameManager.enemyJustHit = false
 		else:
-			zamline.texture = red_zamline.texture
-			trail.self_modulate = Color8(171,0,0)
-			look_at(moveToPos)
-			position = position.move_toward(moveToPos, GameManager.enemySpeed)
-		
-		move_and_slide()
-		
-		if GameManager.canIncreaseEnemySpeed && GameManager.enemySpeed < 5:
-			GameManager.enemySpeed += 0.005
-		
-		if moveToPos == position:
-			var x = randf_range((0 - spawn_collider.x), spawn_collider.x)
-			var y = randf_range((0 - spawn_collider.y), spawn_collider.y)
-			moveToPos = Vector2(x,y)
+			motion = Vector2.ZERO
+			if player != null:
+				look_at(player.global_position)
+				position = position.move_toward(player.position, GameManager.enemySpeed)
+			else:
+				zamline.texture = red_zamline.texture
+				trail.self_modulate = Color8(171,0,0)
+				look_at(moveToPos)
+				position = position.move_toward(moveToPos, GameManager.enemySpeed)
+			
+			move_and_slide()
+			
+			if GameManager.canIncreaseEnemySpeed && GameManager.enemySpeed < 5:
+				GameManager.enemySpeed += 0.005
+			
+			if moveToPos == position:
+				var x = randf_range((0 - spawn_collider.x), spawn_collider.x)
+				var y = randf_range((0 - spawn_collider.y), spawn_collider.y)
+				moveToPos = Vector2(x,y)

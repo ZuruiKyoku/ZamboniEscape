@@ -37,6 +37,7 @@ func _physics_process(_delta):
 			if Input.is_action_just_pressed("Boost") && GameManager.hasSpeedBoost:
 				velocity.y = vDirection * SPEED * BOOST
 				GameManager.hasSpeedBoost = false
+				Globals.user_prefs["SpeedBoostsUsed"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsUsed"])
 			else:
 				velocity.y = vDirection * SPEED
 			lastV = vDirection

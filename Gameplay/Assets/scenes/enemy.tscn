@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byw2biqssn885"]
+[gd_scene load_steps=11 format=3 uid="uid://byw2biqssn885"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/Enemy.gd" id="1_4jc5v"]
 [ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="2_k15u8"]
@@ -10,7 +10,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ar0p"]
 size = Vector2(53, 63)
 
+[sub_resource type="Animation" id="Animation_qeckm"]
+resource_name = "spin_zam"
+length = 2.0
+
+[sub_resource type="Animation" id="Animation_3hmp3"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlk22"]
+_data = {
+"RESET": SubResource("Animation_3hmp3"),
+"spin_zam": SubResource("Animation_qeckm")
+}
+
 [node name="Enemy" type="CharacterBody2D"]
+rotation = 3.14159
 collision_mask = 13
 script = ExtResource("1_4jc5v")
 
@@ -49,3 +63,8 @@ position = Vector2(-24, 0)
 position = Vector2(24, 0)
 width = 55.0
 texture = ExtResource("3_ixq3a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vlk22")
+}
