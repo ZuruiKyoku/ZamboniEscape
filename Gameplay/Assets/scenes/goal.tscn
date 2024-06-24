@@ -38,6 +38,8 @@ joint_mode = 2
 polygon = PackedVector2Array(-2, 0, 26, 0, 42, 23, 42, 56, 26, 80, -2, 80, -2, 76, 24, 76, 38, 56, 38, 26, 24, 4, -2, 4)
 
 [node name="Miss" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Miss"]
 position = Vector2(15, 40)

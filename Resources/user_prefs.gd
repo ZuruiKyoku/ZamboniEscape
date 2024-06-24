@@ -61,3 +61,23 @@ func increaseValue(val):
 	var tempVal = decryptValue(val)
 	tempVal += 1
 	return encryptValue(tempVal)
+
+func resetStats():
+	TimesPlayed = encryptValue(0)
+	Deaths = encryptValue(0)
+	DistanceSkated = encryptValue(0.0)
+	PucksCollected = encryptValue(0)
+	PucksShot = encryptValue(0)
+	PucksHit = encryptValue(0)
+	GoalsMade = encryptValue(0)
+	GoalsMissed = encryptValue(0)
+	NearMisses = encryptValue(0)
+	TotalPowerupsAcquired = encryptValue(0)
+	GoldenPucksAcquired = encryptValue(0)
+	GoldenPucksShot = encryptValue(0)
+	GoldenPucksHit = encryptValue(0)
+	FlameTrailsAcquired = encryptValue(0)
+	FlameTrailsUsed = encryptValue(0)
+	TimesZamboniHitFlameTrails = encryptValue(0)
+	SpeedBoostsAcquired = encryptValue(0)
+	SpeedBoostsUsed = encryptValue(0)

@@ -255,7 +255,7 @@ _data = {
 colors = PackedColorArray(0.12549, 0.12549, 0.12549, 1, 0.12549, 0.12549, 0.12549, 0)
 
 [node name="Puck" type="RigidBody2D"]
-modulate = Color(0.133196, 0.133196, 0.133196, 1)
+self_modulate = Color(0.133196, 0.133196, 0.133196, 1)
 z_index = 50
 collision_layer = 4
 collision_mask = 13

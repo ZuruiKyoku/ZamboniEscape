@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlup1jvor7emq"]
+[gd_scene load_steps=13 format=3 uid="uid://dlup1jvor7emq"]
 
 [ext_resource type="Script" path="res://Menus/stats.gd" id="1_acb6a"]
 [ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_be3ya"]
 [ext_resource type="StyleBox" uid="uid://dxhu7deg30gdt" path="res://statStyleBox.tres" id="3_4u2t4"]
 [ext_resource type="Texture2D" uid="uid://edprf5jrmggr" path="res://Gameplay/Assets/sprites/Icons/cross.png" id="3_emp6o"]
+[ext_resource type="Texture2D" uid="uid://blcw7rpjefaqq" path="res://Gameplay/Assets/sprites/Icons/return.png" id="5_34e8q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
 bg_color = Color(0, 0, 0, 0.396078)
@@ -156,6 +157,18 @@ theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[center][u]Stats"
 scroll_active = false
+
+[node name="Reset" type="Button" parent="Panel/BackgroundPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -131.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "Reset"
+icon = ExtResource("5_34e8q")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/BackgroundPanel"]
 layout_mode = 1
@@ -596,4 +609,5 @@ libraries = {
 "": SubResource("AnimationLibrary_63jpn")
 }
 
+[connection signal="button_up" from="Panel/BackgroundPanel/Reset" to="." method="_on_reset_button_up"]
 [connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/Close" to="." method="_on_close_button_up"]
