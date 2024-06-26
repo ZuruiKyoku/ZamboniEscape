@@ -59,7 +59,6 @@ func _physics_process(_delta):
 		else:
 			skateline.emitting = false
 		
-		
 #Rotate Sprite
 	#if(hDirection == 0):
 	#	if(vDirection == -1):

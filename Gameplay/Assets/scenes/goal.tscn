@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy57g7rktp05k"]
+[gd_scene load_steps=3 format=3 uid="uid://cy57g7rktp05k"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/goal.gd" id="1_at6ar"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nnfj8"]
-a = Vector2(0, 1)
-b = Vector2(0, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs462"]
 size = Vector2(54, 100)
@@ -14,19 +10,25 @@ script = ExtResource("1_at6ar")
 
 [node name="GoalLine" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 
 [node name="Line2D" type="Line2D" parent="GoalLine"]
 points = PackedVector2Array(0, 0, 0, 80)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLine"]
-position = Vector2(0, 4)
-shape = SubResource("SegmentShape2D_nnfj8")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GoalLine"]
+polygon = PackedVector2Array(-2, 5, 2, 5, 2, 75, -2, 75)
+
+[node name="GoalLine2" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GoalLine2"]
+polygon = PackedVector2Array(-2, 5, 2, 5, 2, 75, -2, 75)
 
 [node name="Net" type="StaticBody2D" parent="."]
-collision_mask = 7
+collision_mask = 23
 
 [node name="Line2D2" type="Line2D" parent="Net"]
 points = PackedVector2Array(0, 2, 25, 2, 40, 24, 40, 56, 25, 78, 0, 78)
@@ -39,7 +41,7 @@ polygon = PackedVector2Array(-2, 0, 26, 0, 42, 23, 42, 56, 26, 80, -2, 80, -2, 7
 
 [node name="Miss" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Miss"]
 position = Vector2(15, 40)

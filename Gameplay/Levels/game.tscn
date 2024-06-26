@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bh102q4hdb15q"]
+[gd_scene load_steps=21 format=3 uid="uid://bh102q4hdb15q"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/game.gd" id="1_3hnyu"]
 [ext_resource type="PackedScene" uid="uid://cttou5l6l7syr" path="res://Gameplay/Assets/scenes/player.tscn" id="1_jppca"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://l1stk5hadry2" path="res://Gameplay/Assets/audio/begin.ogg" id="11_347yi"]
 [ext_resource type="Texture2D" uid="uid://dgfsxrcafk4xi" path="res://Gameplay/Assets/sprites/Icons/fastForward.png" id="12_8a37s"]
 [ext_resource type="Texture2D" uid="uid://eeafq7451f2q" path="res://Gameplay/Assets/sprites/puck_white.png" id="13_3dl8w"]
+[ext_resource type="Texture2D" uid="uid://cjeb55x7nf6u5" path="res://Gameplay/Assets/sprites/Fiyah.png" id="14_hj4hh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ykby1"]
 
@@ -223,6 +224,10 @@ _data = {
 "GameStart": SubResource("Animation_ncj58"),
 "RESET": SubResource("Animation_cejuf")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbksm"]
+atlas = ExtResource("14_hj4hh")
+region = Rect2(0, 0, 51, 72)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3hnyu")
@@ -478,7 +483,24 @@ offset_bottom = -303.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("13_3dl8w")
 
+[node name="FireTrail" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 594.0
+offset_top = -353.0
+offset_right = 644.0
+offset_bottom = -303.0
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_rbksm")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="PuckContainer" type="Node2D" parent="."]
+
+[node name="FireTrailTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="timeout" from="IncreaseScore" to="." method="_on_increase_score_timeout"]
 [connection signal="timeout" from="PuckSpawner" to="." method="_on_puck_spawner_timeout"]
+[connection signal="timeout" from="FireTrailTimer" to="." method="_on_fire_trail_timer_timeout"]

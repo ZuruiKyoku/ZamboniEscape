@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://qj62bhf5awr7"]
+
+[ext_resource type="Script" path="res://Gameplay/Assets/scripts/flames.gd" id="1_5psue"]
+
+[sub_resource type="Gradient" id="Gradient_0dvox"]
+offsets = PackedFloat32Array(0, 0.3, 0.6, 1)
+colors = PackedColorArray(1, 0.792157, 0, 1, 1, 0.588235, 0, 1, 1, 0.32549, 0, 1, 0.133196, 0.133196, 0.133196, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1e3c"]
+size = Vector2(13, 25)
+
+[node name="Flames" type="CPUParticles2D"]
+show_behind_parent = true
+emitting = false
+amount = 25
+lifetime = 0.75
+one_shot = true
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_0dvox")
+script = ExtResource("1_5psue")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -9.5)
+shape = SubResource("RectangleShape2D_d1e3c")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

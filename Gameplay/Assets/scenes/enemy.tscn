@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byw2biqssn885"]
+[gd_scene load_steps=10 format=3 uid="uid://byw2biqssn885"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/Enemy.gd" id="1_4jc5v"]
 [ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="2_k15u8"]
@@ -13,8 +13,14 @@ size = Vector2(53, 63)
 [sub_resource type="CircleShape2D" id="CircleShape2D_aixq7"]
 radius = 54.0093
 
+[sub_resource type="Gradient" id="Gradient_0dvox"]
+offsets = PackedFloat32Array(0, 0.3, 0.6, 1)
+colors = PackedColorArray(1, 0.792157, 0, 1, 1, 0.588235, 0, 1, 1, 0.32549, 0, 1, 0.133196, 0.133196, 0.133196, 1)
+metadata/_snap_enabled = true
+
 [node name="Enemy" type="CharacterBody2D"]
-collision_mask = 13
+collision_layer = 16
+collision_mask = 45
 script = ExtResource("1_4jc5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -54,10 +60,31 @@ width = 55.0
 texture = ExtResource("3_ixq3a")
 
 [node name="NearMissZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NearMissZone"]
 shape = SubResource("CircleShape2D_aixq7")
 
+[node name="FireTick" type="Timer" parent="."]
+one_shot = true
+
+[node name="Flames" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.75
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 25.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_0dvox")
+
 [connection signal="body_exited" from="NearMissZone" to="." method="_on_near_miss_zone_body_exited"]
+[connection signal="timeout" from="FireTick" to="." method="_on_fire_tick_timeout"]

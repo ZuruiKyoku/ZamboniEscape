@@ -16,6 +16,8 @@ var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var puck_container = $PuckContainer
 @onready var speed_boost = $SpeedBoost
 @onready var gold_puck = $GoldPuck
+@onready var fire_trail = $FireTrail
+@onready var fire_trail_timer = $FireTrailTimer
 
 const TOTALPU = 2
 
@@ -36,9 +38,14 @@ func _process(_delta):
 		SceneManager.swap_scenes(SceneRegistry.main_scenes["Quit"],get_tree().root,self,"quit_to")
 		
 	else:
-		GameManager.enemySpeed = 0
 		if Input.is_action_just_pressed("Shoot") && GameManager.decryptValue(GameManager.playerPuckCount) > 0 && GameManager.playerIsAlive:
 			shootPuck()
+			
+		if Input.is_action_just_pressed("ShootGolden") && GameManager.hasGoldenPuck && GameManager.playerIsAlive:
+			shootGold()
+		
+		if Input.is_action_just_pressed("FireTrail") && GameManager.hasFireTrail && GameManager.playerIsAlive:
+			startFire()
 			
 		puck_count_label.text = "Pucks: " + str(ceil(GameManager.decryptValue(GameManager.playerPuckCount)))
 		score_label.text = "Score: " + str(GameManager.decryptValue(GameManager.playerScore))
@@ -73,14 +80,36 @@ func shootPuck():
 	puck.position = player.position
 	puck.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
 	var part = shotPart.instantiate()
+	part.modulate = Color8(0,228,229)
 	part.position = player.position
 	part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
 	shoot.play()
 	puck_container.add_child((puck))
 	puck_container.add_child(part)
 	Globals.user_prefs["PucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["PucksShot"])
-	#add_child(puck)
-	#add_child(part)
+	
+func shootGold():
+	var puck = PUCK.instantiate()
+	puck.shootGold()
+	puck.name = "GoldPuck" + str(randf())
+	puck.position = player.position
+	puck.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
+	var part = shotPart.instantiate()
+	part.modulate = Color8(218,165, 32)
+	part.position = player.position
+	part.rotation_degrees = player.get_node("AnimatedSprite2D").rotation_degrees
+	shoot.play()
+	puck_container.add_child((puck))
+	puck_container.add_child(part)
+	Globals.user_prefs["GoldenPucksShot"] = Globals.user_prefs.increaseValue(Globals.user_prefs["GoldenPucksShot"])
+	gold_puck.visible = false
+	
+func startFire():
+	GameManager.hasFireTrail = false
+	GameManager.fireTrailActive = true
+	fire_trail.visible = false
+	fire_trail_timer.start(5)
+	Globals.user_prefs["FlameTrailsUsed"] = Globals.user_prefs.increaseValue(Globals.user_prefs["FlameTrailsUsed"])
 
 func _on_puck_spawner_timeout():
 	if(GameManager.playerIsAlive):
@@ -113,12 +142,15 @@ func givePowerup():
 		values.append("boost")
 	if !GameManager.hasGoldenPuck:
 		values.append("gold")
+	if !GameManager.hasFireTrail:
+		values.append("fire")
 	
 	if values.size() > 0:
 		var selectedValue = values.pick_random()
 		match selectedValue:
 			"health":
 				GameManager.increaseHealth()
+				Globals.user_prefs["ExtraLivesAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["ExtraLivesAcquired"])
 			"boost":
 				GameManager.hasSpeedBoost = true
 				speed_boost.visible = true
@@ -127,6 +159,10 @@ func givePowerup():
 				GameManager.hasGoldenPuck = true
 				gold_puck.visible = true
 				Globals.user_prefs["GoldenPucksAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["GoldenPucksAcquired"])
+			"fire":
+				GameManager.hasFireTrail = true
+				fire_trail.visible = true
+				Globals.user_prefs["FlameTrailsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["FlameTrailsAcquired"])
 		
 		Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
 	else:
@@ -140,3 +176,6 @@ func goto_main_menu():
 func goto_restart():
 	GameManager.currentState = GameManager.GameState.Playing
 	SceneManager.swap_scenes(SceneRegistry.levels["game_start"],get_tree().root,self,"zamboni_to_right")
+
+func _on_fire_trail_timer_timeout():
+	GameManager.fireTrailActive = false

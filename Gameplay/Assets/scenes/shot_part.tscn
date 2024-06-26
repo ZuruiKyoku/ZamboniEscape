@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/shot_part.gd" id="1_e8p20"]
 
-[sub_resource type="Gradient" id="Gradient_jlnyr"]
-colors = PackedColorArray(0, 0.894118, 0.898039, 1, 0, 0.894118, 0.898039, 0.576471)
+[sub_resource type="Gradient" id="Gradient_4e5ly"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="ShotPart" type="Node2D"]
 script = ExtResource("1_e8p20")
@@ -23,7 +23,6 @@ initial_velocity_min = 50.0
 initial_velocity_max = 50.0
 scale_amount_min = 2.0
 scale_amount_max = 3.0
-color = Color(0, 0.894118, 0.898039, 0.509804)
-color_ramp = SubResource("Gradient_jlnyr")
+color_ramp = SubResource("Gradient_4e5ly")
 
 [connection signal="finished" from="ShotPartEffect" to="." method="_on_shot_part_effect_finished"]

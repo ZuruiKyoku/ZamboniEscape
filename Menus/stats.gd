@@ -35,6 +35,7 @@ func getValues():
 	powerup_values.get_node("FlamesHit").text = str(Globals.user_prefs.decryptValue(Globals.user_prefs["TimesZamboniHitFlameTrails"]))
 	powerup_values.get_node("SpeedAcquired").text = str(Globals.user_prefs.decryptValue(Globals.user_prefs["SpeedBoostsAcquired"]))
 	powerup_values.get_node("SpeedUsed").text = str(Globals.user_prefs.decryptValue(Globals.user_prefs["SpeedBoostsUsed"]))
+	powerup_values.get_node("ExtraLives").text = str(Globals.user_prefs.decryptValue(Globals.user_prefs["ExtraLivesAcquired"]))
 
 func _on_close_button_up():
 	GameManager.currentState = GameManager.GameState.GotoMain

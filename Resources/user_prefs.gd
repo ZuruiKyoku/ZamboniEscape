@@ -36,6 +36,7 @@ class_name UserPrefs extends Resource
 @export var TimesZamboniHitFlameTrails:int = encryptValue(0)
 @export var SpeedBoostsAcquired:int = encryptValue(0)
 @export var SpeedBoostsUsed:int = encryptValue(0)
+@export var ExtraLivesAcquired:int = encryptValue(0)
 #endregion
 
 const USER_PREFS_PATH:String = "user://user_prefs.tres"
@@ -81,3 +82,4 @@ func resetStats():
 	TimesZamboniHitFlameTrails = encryptValue(0)
 	SpeedBoostsAcquired = encryptValue(0)
 	SpeedBoostsUsed = encryptValue(0)
+	ExtraLivesAcquired = encryptValue(0)

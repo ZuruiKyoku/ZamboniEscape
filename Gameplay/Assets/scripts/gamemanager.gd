@@ -13,13 +13,16 @@ var givePowerup:bool = false
 var hasSpeedBoost:bool = false
 var hasGoldenPuck:bool = false
 var hasFireTrail:bool = false
+var fireTrailActive:bool = false
 
 #Enemy Vals
 var enemySpeed:float = 1.0
 var lastEnemySpeed:float = 1.0
 var canIncreaseEnemySpeed:bool = true
 var enemyHitCount:int = 0
-var enemyJustHit = false
+var enemyJustHit:bool = false
+var enemyJustHitGold:bool = false
+var enemyOnFire:bool = false
 
 enum GameState {MainMenu, TeamSelect, Playing, Paused, GameOver, GotoMain, GotoPlay, GotoGameOver, Quit}
 var currentState:GameState = GameState.MainMenu
@@ -38,11 +41,15 @@ func restart(state:GameState):
 	hasSpeedBoost = false
 	hasGoldenPuck = false
 	hasFireTrail = false
+	fireTrailActive = false
 	
 	#Reset Enemy
 	enemySpeed = 1.0
 	lastEnemySpeed = 1.0
 	canIncreaseEnemySpeed = true
+	enemyHitCount = 0
+	enemyJustHit = false
+	enemyJustHitGold = false
 
 func encryptValue(val):
 	return ((val + 25) * 69)
