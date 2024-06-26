@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvd40l5fmhgdn"]
+[gd_scene load_steps=9 format=3 uid="uid://dvd40l5fmhgdn"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/pickup_puck.gd" id="1_fvel1"]
 [ext_resource type="Texture2D" uid="uid://by7w2a7oomv5l" path="res://Gameplay/Assets/sprites/puck_white_2.png" id="2_h8f6o"]
@@ -84,11 +84,41 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_ea1ie"]
+resource_name = "Spin"
+length = 0.75
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1e-05, 3)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_olfis"]
 _data = {
 "Pickup": SubResource("Animation_3wglo"),
-"RESET": SubResource("Animation_4wjcx")
+"RESET": SubResource("Animation_4wjcx"),
+"Spin": SubResource("Animation_ea1ie")
 }
 
 [node name="PickupPuck" type="Area2D"]
@@ -97,7 +127,7 @@ script = ExtResource("1_fvel1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.133196, 0.133196, 0.133196, 1)
-scale = Vector2(3, 3)
+scale = Vector2(1e-05, 3)
 texture = ExtResource("2_h8f6o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -108,6 +138,7 @@ shape = SubResource("CircleShape2D_cuqmi")
 libraries = {
 "": SubResource("AnimationLibrary_olfis")
 }
+autoplay = "Spin"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_nk3th")

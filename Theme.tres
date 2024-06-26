@@ -4,18 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://wed4483fo1s2" path="res://Gameplay/Assets/sprites/Icons/down.png" id="3_ea6lg"]
 [ext_resource type="FontFile" uid="uid://dao3xlolmrfv2" path="res://Gameplay/Assets/fonts/Kenney Pixel.ttf" id="3_j0ost"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crheo"]
-bg_color = Color(0.503941, 0.662987, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rgn6"]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
@@ -76,7 +75,7 @@ content_margin_right = 10.0
 Button/constants/icon_max_width = 40
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("3_j0ost")
-Button/styles/focus = SubResource("StyleBoxFlat_crheo")
+Button/styles/focus = SubResource("StyleBoxFlat_3rgn6")
 Button/styles/hover = SubResource("StyleBoxFlat_3gkrm")
 Button/styles/normal = SubResource("StyleBoxFlat_c7xro")
 Button/styles/pressed = SubResource("StyleBoxFlat_db38i")

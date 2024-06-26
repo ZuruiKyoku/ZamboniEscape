@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
-@onready var zamline:CPUParticles2D = $Zamline
 @onready var player = %Player
-@onready var red_zamline = $RedZamline
 @onready var spawn_collider = $"../SpawnArea/SpawnCollider".shape.extents
 @onready var trail = $Node2D/Trail2D
 @onready var fire_tick = $FireTick
 @onready var flames = $Flames
 @onready var fire = $Fire
+@onready var spin_particles = $SpinParticles
 
 var moveToPos = Vector2(0,25)
 
@@ -32,7 +31,6 @@ func _physics_process(_delta):
 				look_at(player.global_position)
 				position = position.move_toward(player.position, GameManager.enemySpeed)
 			else:
-				zamline.texture = red_zamline.texture
 				trail.self_modulate = Color8(171,0,0)
 				look_at(moveToPos)
 				position = position.move_toward(moveToPos, GameManager.enemySpeed)
@@ -50,6 +48,8 @@ func _physics_process(_delta):
 func spin_zam(time = 2):
 	if GameManager.enemyJustHitGold:
 		time = 4
+	trail.visible = false
+	spin_particles.emitting = true
 	tweening = true
 	tween = create_tween()
 	tween.tween_property(self, "rotation", time*TAU, time).as_relative()
@@ -59,6 +59,8 @@ func spin_zam(time = 2):
 	if GameManager.enemyJustHitGold:
 		GameManager.enemyJustHitGold = false
 	tweening = false
+	spin_particles.emitting = false
+	trail.visible = true
 	
 func startFire():
 	GameManager.enemyOnFire = true
@@ -77,6 +79,7 @@ func _on_fire_tick_timeout():
 	fireTicks += 1
 	spin_zam(1)
 	if fireTicks == maxFireTicks:
+		fireTicks = 0
 		GameManager.enemyOnFire = false
 		flames.emitting = false
 	else:

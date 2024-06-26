@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Zamboni Escape"
-config/version="B 0.3"
+config/version="B 0.4"
 run/main_scene="res://Splash/godot_splash_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://Splash/original-large-blue.png"
@@ -22,7 +22,7 @@ boot_splash/minimum_display_time=3000
 
 Globals="*res://Autoloads/Globals.gd"
 SceneManager="*res://Autoloads/SceneManager.gd"
-BackgroundMusic="*res://Gameplay/Assets/scenes/background_music.tscn"
+BackgroundMusic="*res://Menus/background_music.tscn"
 GameManager="*res://Gameplay/Assets/scripts/gamemanager.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 Colors="*res://Autoloads/Colors.gd"
@@ -198,5 +198,4 @@ FireTrail={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_2d=3

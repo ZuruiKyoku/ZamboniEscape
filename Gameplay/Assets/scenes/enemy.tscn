@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="2_k15u8"]
 [ext_resource type="Texture2D" uid="uid://qsbrr55shqnl" path="res://Gameplay/Assets/sprites/spr_zamline.png" id="3_ixq3a"]
 [ext_resource type="PackedScene" uid="uid://cav84dmotyy3o" path="res://Gameplay/Assets/scenes/killzone.tscn" id="4_wrbxg"]
-[ext_resource type="Texture2D" uid="uid://duo7dp5jmi4v5" path="res://Gameplay/Assets/sprites/spr_zambline.png" id="5_53uov"]
 [ext_resource type="PackedScene" uid="uid://0gxqvnm4wbyy" path="res://Gameplay/Assets/scenes/trail_2d.tscn" id="6_i5xj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ar0p"]
@@ -18,21 +17,16 @@ offsets = PackedFloat32Array(0, 0.3, 0.6, 1)
 colors = PackedColorArray(1, 0.792157, 0, 1, 1, 0.588235, 0, 1, 1, 0.32549, 0, 1, 0.133196, 0.133196, 0.133196, 1)
 metadata/_snap_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_e2axq"]
+colors = PackedColorArray(0, 0.894118, 0.898039, 1, 0, 0.894118, 0.898039, 0)
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 45
+collision_mask = 47
 script = ExtResource("1_4jc5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_k15u8")
-
-[node name="Zamline" type="CPUParticles2D" parent="."]
-visible = false
-amount = 25
-speed_scale = 5.0
-texture = ExtResource("3_ixq3a")
-particle_flag_align_y = true
-gravity = Vector2(0, 0)
 
 [node name="Killzone" parent="." instance=ExtResource("4_wrbxg")]
 position = Vector2(0, 1)
@@ -41,10 +35,6 @@ position = Vector2(0, 1)
 position = Vector2(0.5, -0.5)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_1ar0p")
-
-[node name="RedZamline" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("5_53uov")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -87,6 +77,25 @@ scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_0dvox")
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SpinParticles" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 500
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 25.0
+direction = Vector2(0, 10)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+orbit_velocity_min = -1.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_e2axq")
 
 [connection signal="body_exited" from="NearMissZone" to="." method="_on_near_miss_zone_body_exited"]
 [connection signal="timeout" from="FireTick" to="." method="_on_fire_tick_timeout"]

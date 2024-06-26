@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=3 uid="uid://de4n2lt7anll1"]
 
-[ext_resource type="Script" path="res://Gameplay/Assets/scripts/team_selet.gd" id="1_k4stb"]
-[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_77vde"]
-[ext_resource type="Texture2D" uid="uid://c3bf24pfp3uhb" path="res://Gameplay/Assets/sprites/teams.png" id="2_xd4dl"]
-[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="4_t361p"]
+[ext_resource type="Script" path="res://Menus/team_selet.gd" id="1_gfoa2"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_5fnrr"]
+[ext_resource type="Texture2D" uid="uid://c3bf24pfp3uhb" path="res://Gameplay/Assets/sprites/teams.png" id="3_tlit4"]
+[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="4_48sp0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
 bg_color = Color(0, 0, 0, 0.396078)
@@ -24,131 +24,131 @@ corner_radius_bottom_left = 4
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hmck"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(0, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5p0qf"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(19, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ee0m"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(38, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4tld"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(57, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4xs8"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(76, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at786"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(95, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mn41"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(114, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7xys"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(133, 0, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4qhy"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(0, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw07u"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(19, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnopn"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(38, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ump4n"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(57, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hslv1"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(76, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sluf2"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(95, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsw84"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(114, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60vjy"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(133, 40, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyfo1"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(0, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvxq3"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(19, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ar3m"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(38, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nivvd"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(57, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh205"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(76, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25uvd"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(95, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lsdy"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(114, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtem3"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(133, 80, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kr8nb"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(0, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5r1i5"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(19, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40smy"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(38, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e384"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(57, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njnt5"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(76, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gk01v"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(95, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usqfc"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(114, 120, 19, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oo8k0"]
-atlas = ExtResource("2_xd4dl")
+atlas = ExtResource("3_tlit4")
 region = Rect2(133, 120, 19, 40)
 
 [sub_resource type="Animation" id="Animation_xm646"]
@@ -206,7 +206,7 @@ _data = {
 }
 
 [node name="TeamSelet" type="CanvasLayer"]
-script = ExtResource("1_k4stb")
+script = ExtResource("1_gfoa2")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -215,7 +215,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
-theme = ExtResource("2_77vde")
+theme = ExtResource("2_5fnrr")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xcdwt")
 
 [node name="BackgroundPanel" type="Panel" parent="Panel"]
@@ -260,7 +260,7 @@ layout_mode = 2
 [node name="Heading" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("2_77vde")
+theme = ExtResource("2_5fnrr")
 theme_override_font_sizes/font_size = 32
 text = "Team Select"
 horizontal_alignment = 1
@@ -559,9 +559,9 @@ alignment = 1
 [node name="MainMenu" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
-theme = ExtResource("2_77vde")
+theme = ExtResource("2_5fnrr")
 text = "Main Menu"
-icon = ExtResource("4_t361p")
+icon = ExtResource("4_48sp0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

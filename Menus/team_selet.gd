@@ -63,4 +63,5 @@ func handle_team_select(team):
 	var teamVal:int = int(team.replace("Team", ""))
 	teamVal -= 1
 	selectedTeam = teamVal
+	Globals.user_prefs.playerTeam = selectedTeam
 	

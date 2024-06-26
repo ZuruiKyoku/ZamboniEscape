@@ -29,6 +29,7 @@ func _on_retry_button_up():
 
 func _on_submit_score_button_up():
 	if player_name.text != "":
+		Globals.user_prefs.playerName = player_name.text
 		saving.visible = true
 		var _sw_result: Dictionary = await SilentWolf.Scores.save_score(player_name.text, GameManager.decryptValue(GameManager.playerScore)).sw_save_score_complete
 		
@@ -38,3 +39,4 @@ func _on_submit_score_button_up():
 		await get_tree().create_timer(1.5).timeout
 		saved.visible = false
 		
+		main_menu.grab_focus()

@@ -147,7 +147,30 @@ func _notification(what):
 			Globals.user_prefs.save()
 			get_tree().paused = false
 
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Spring_Out":
 		queue_free()
+
+func _on_menu_button_mouse_entered():
+	menu_button.grab_focus()
+
+func _on_save_button_mouse_entered():
+	save_button.grab_focus()
+
+func _on_close_button_mouse_entered():
+	close_button.grab_focus()
+
+func _on_quit_button_mouse_entered():
+	quit_button.grab_focus()
+
+func _on_language_dropdown_mouse_entered():
+	language_dropdown.grab_focus()
+
+func _on_window_mode_dropdown_mouse_entered():
+	window_mode_dropdown.grab_focus()
+
+func _on_window_resolution_dropdown_mouse_entered():
+	window_resolution_dropdown.grab_focus()
+
+func _on_monitor_dropdown_mouse_entered():
+	monitor_dropdown.grab_focus()

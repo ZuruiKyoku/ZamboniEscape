@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://c53d5qwva2ete"]
 
-[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_ml01s"]
-[ext_resource type="Script" path="res://Gameplay/Assets/scripts/game_over.gd" id="1_ymfxs"]
-[ext_resource type="Texture2D" uid="uid://cht1ff80amput" path="res://Gameplay/Assets/sprites/Icons/export.png" id="3_ipinr"]
-[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="3_wdf4w"]
-[ext_resource type="Texture2D" uid="uid://blcw7rpjefaqq" path="res://Gameplay/Assets/sprites/Icons/return.png" id="4_jna1c"]
-[ext_resource type="AudioStream" uid="uid://b42gpd3q33ypd" path="res://Gameplay/Assets/audio/game_over.ogg" id="6_08cvg"]
+[ext_resource type="Script" path="res://Menus/game_over.gd" id="1_x88mh"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_i7ib4"]
+[ext_resource type="Texture2D" uid="uid://cht1ff80amput" path="res://Gameplay/Assets/sprites/Icons/export.png" id="3_evvxv"]
+[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="4_uqqfk"]
+[ext_resource type="Texture2D" uid="uid://blcw7rpjefaqq" path="res://Gameplay/Assets/sprites/Icons/return.png" id="5_yw288"]
+[ext_resource type="AudioStream" uid="uid://b42gpd3q33ypd" path="res://Gameplay/Assets/audio/game_over.ogg" id="6_s4mul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
 bg_color = Color(0, 0, 0, 0.396078)
@@ -90,7 +90,7 @@ _data = {
 }
 
 [node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_ymfxs")
+script = ExtResource("1_x88mh")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -136,7 +136,7 @@ size_flags_stretch_ratio = 0.0
 [node name="Heading" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 theme_override_font_sizes/font_size = 72
 text = "Game Over"
 horizontal_alignment = 1
@@ -151,7 +151,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 placeholder_text = "Enter Player Name"
 max_length = 15
 
@@ -162,7 +162,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
 
 [node name="Label2" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 theme_override_font_sizes/font_size = 48
 text = "Score:"
 horizontal_alignment = 1
@@ -170,7 +170,7 @@ vertical_alignment = 1
 
 [node name="Score" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 theme_override_font_sizes/font_size = 32
 text = "00000"
 horizontal_alignment = 1
@@ -179,7 +179,7 @@ vertical_alignment = 1
 [node name="NewHigh" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 text = "New High Score!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -193,9 +193,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_ml01s")
+focus_neighbor_top = NodePath("../HBoxContainer/MainMenu")
+focus_neighbor_bottom = NodePath("../HBoxContainer/MainMenu")
+theme = ExtResource("2_i7ib4")
 text = "Submit Score"
-icon = ExtResource("3_ipinr")
+icon = ExtResource("3_evvxv")
 
 [node name="Panel4" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 25)
@@ -210,16 +212,22 @@ alignment = 1
 [node name="MainMenu" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme = ExtResource("1_ml01s")
+focus_neighbor_left = NodePath("../Retry")
+focus_neighbor_top = NodePath("../../SubmitScore")
+focus_neighbor_right = NodePath("../Retry")
+theme = ExtResource("2_i7ib4")
 text = "Main Menu"
-icon = ExtResource("3_wdf4w")
+icon = ExtResource("4_uqqfk")
 
 [node name="Retry" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme = ExtResource("1_ml01s")
+focus_neighbor_left = NodePath("../MainMenu")
+focus_neighbor_top = NodePath("../../SubmitScore")
+focus_neighbor_right = NodePath("../MainMenu")
+theme = ExtResource("2_i7ib4")
 text = "Retry"
-icon = ExtResource("4_jna1c")
+icon = ExtResource("5_yw288")
 
 [node name="Saving" type="Panel" parent="."]
 visible = false
@@ -243,7 +251,7 @@ offset_right = 48.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 theme_override_font_sizes/font_size = 72
 text = "Saving Score..."
 horizontal_alignment = 1
@@ -271,7 +279,7 @@ offset_right = 48.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_ml01s")
+theme = ExtResource("2_i7ib4")
 theme_override_font_sizes/font_size = 72
 text = "Score Saved!"
 horizontal_alignment = 1
@@ -283,7 +291,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_08cvg")
+stream = ExtResource("6_s4mul")
 
 [connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/SubmitScore" to="." method="_on_submit_score_button_up"]
 [connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]

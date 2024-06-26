@@ -10,8 +10,9 @@ extends Area2D
 var player = null
 
 func _on_body_entered(body):
-	player = body
-	checkPlayer()
+	if body.name.contains("Player"):
+		player = body
+		checkPlayer()
 	
 func _on_body_exited(_body):
 	exit_timer.start(0.25)
