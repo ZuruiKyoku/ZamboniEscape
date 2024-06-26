@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var trail = $Node2D/Trail2D
 @onready var fire_tick = $FireTick
 @onready var flames = $Flames
+@onready var fire = $Fire
 
 var moveToPos = Vector2(0,25)
 

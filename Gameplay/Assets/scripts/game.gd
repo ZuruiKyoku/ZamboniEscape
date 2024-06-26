@@ -18,6 +18,7 @@ var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var gold_puck = $GoldPuck
 @onready var fire_trail = $FireTrail
 @onready var fire_trail_timer = $FireTrailTimer
+@onready var catch_fire = $CatchFire
 
 const TOTALPU = 2
 
@@ -31,6 +32,7 @@ func start_scene():
 	animation_player.play("GameStart")
 	await animation_player.animation_finished
 	get_tree().paused = false
+	GameManager.hasFireTrail = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -105,6 +107,7 @@ func shootGold():
 	gold_puck.visible = false
 	
 func startFire():
+	catch_fire.play()
 	GameManager.hasFireTrail = false
 	GameManager.fireTrailActive = true
 	fire_trail.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bh102q4hdb15q"]
+[gd_scene load_steps=22 format=3 uid="uid://bh102q4hdb15q"]
 
 [ext_resource type="Script" path="res://Gameplay/Assets/scripts/game.gd" id="1_3hnyu"]
 [ext_resource type="PackedScene" uid="uid://cttou5l6l7syr" path="res://Gameplay/Assets/scenes/player.tscn" id="1_jppca"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dgfsxrcafk4xi" path="res://Gameplay/Assets/sprites/Icons/fastForward.png" id="12_8a37s"]
 [ext_resource type="Texture2D" uid="uid://eeafq7451f2q" path="res://Gameplay/Assets/sprites/puck_white.png" id="13_3dl8w"]
 [ext_resource type="Texture2D" uid="uid://cjeb55x7nf6u5" path="res://Gameplay/Assets/sprites/Fiyah.png" id="14_hj4hh"]
+[ext_resource type="AudioStream" uid="uid://d1sraq4wh7m8m" path="res://Gameplay/Assets/audio/flame.ogg" id="15_xipm6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ykby1"]
 
@@ -500,6 +501,11 @@ stretch_mode = 5
 [node name="FireTrailTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="CatchFire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_xipm6")
+volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="timeout" from="IncreaseScore" to="." method="_on_increase_score_timeout"]
 [connection signal="timeout" from="PuckSpawner" to="." method="_on_puck_spawner_timeout"]

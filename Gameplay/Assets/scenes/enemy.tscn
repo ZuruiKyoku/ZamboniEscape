@@ -86,5 +86,7 @@ scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_0dvox")
 
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_exited" from="NearMissZone" to="." method="_on_near_miss_zone_body_exited"]
 [connection signal="timeout" from="FireTick" to="." method="_on_fire_tick_timeout"]
