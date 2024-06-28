@@ -25,6 +25,9 @@ var leaderboards = null
 var stats_scene:PackedScene = preload("res://Menus/stats.tscn")
 var stats = null
 
+var controls_scene:PackedScene = preload("res://Menus/controls.tscn")
+var controls = null
+
 func _ready():
 	# setup so that we can intercept quit
 	get_tree().set_auto_accept_quit(false)
@@ -114,6 +117,13 @@ func open_stats():
 	if not stats:
 		stats = stats_scene.instantiate()
 		get_tree().root.add_child(stats)
+	else:
+		push_warning('STATS already exists in this scene')
+		
+func open_controls():
+	if not controls:
+		controls = controls_scene.instantiate()
+		get_tree().root.add_child(controls)
 	else:
 		push_warning('STATS already exists in this scene')
 		

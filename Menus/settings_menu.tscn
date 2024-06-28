@@ -139,7 +139,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Gameplay" type="MarginContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/SettingsTabs"]
-visible = false
 custom_minimum_size = Vector2(550, 315)
 layout_mode = 2
 theme_override_constants/margin_left = 25
@@ -274,19 +273,6 @@ text = "Monitor
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Controls" type="MarginContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/SettingsTabs"]
-custom_minimum_size = Vector2(550, 315)
-layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 75
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="GridContainer" type="GridContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/SettingsTabs/Controls"]
-layout_mode = 2
-theme_override_constants/v_separation = 15
-columns = 2
 
 [node name="Panel" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 25)

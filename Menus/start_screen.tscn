@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dy06fpapockt1"]
+[gd_scene load_steps=55 format=3 uid="uid://dy06fpapockt1"]
 
 [ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_gex0f"]
 [ext_resource type="Script" path="res://Menus/start_screen.gd" id="1_v6k1a"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://do6oqrccv1epw" path="res://Gameplay/Assets/sprites/Icons/leaderboardsComplex.png" id="8_4fnyw"]
 [ext_resource type="Texture2D" uid="uid://c3bf24pfp3uhb" path="res://Gameplay/Assets/sprites/teams.png" id="9_gs1rq"]
 [ext_resource type="Texture2D" uid="uid://dn0aaq25h5vmq" path="res://Gameplay/Assets/sprites/Icons/medal2.png" id="9_rtp2a"]
+[ext_resource type="Texture2D" uid="uid://dqlp10vghjw5v" path="res://Gameplay/Assets/sprites/Controls/keyboard_arrows.png" id="12_usipe"]
 [ext_resource type="PackedScene" uid="uid://0gxqvnm4wbyy" path="res://Gameplay/Assets/scenes/trail_2d.tscn" id="12_usjcq"]
 [ext_resource type="Texture2D" uid="uid://dh4ue6dpmwvnf" path="res://Gameplay/Assets/sprites/bck_main.png" id="14_813ba"]
 [ext_resource type="PackedScene" uid="uid://cy57g7rktp05k" path="res://Gameplay/Assets/scenes/goal.tscn" id="17_s56w1"]
@@ -314,88 +315,110 @@ texture = ExtResource("14_813ba")
 [node name="CenterIce2" parent="." instance=ExtResource("3_bu6lb")]
 position = Vector2(4, 22)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_index = 5
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -640.0
-offset_top = -360.0
-offset_right = -640.0
-offset_bottom = -360.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+[node name="MenuButtons" type="Node" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/v_separation = 9
-
-[node name="Start" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
+[node name="Start" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 40)
-layout_mode = 2
+custom_minimum_size = Vector2(134, 40)
+offset_left = -144.0
+offset_top = 101.0
+offset_right = 140.0
+offset_bottom = 176.0
 focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../TeamSelect")
 theme = ExtResource("1_gex0f")
 text = "Start"
 icon = ExtResource("4_hawco")
 
-[node name="TeamSelect" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
+[node name="TeamSelect" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
+offset_left = -100.0
+offset_top = 195.0
+offset_right = 150.0
+offset_bottom = 240.0
+scale = Vector2(0.75, 0.75)
 focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Leaderboards")
+focus_neighbor_right = NodePath("../Stats")
+focus_neighbor_bottom = NodePath("../Settings")
 theme = ExtResource("1_gex0f")
 text = "Team Select"
 icon = ExtResource("5_boa5y")
 
-[node name="Leaderboards" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
+[node name="Settings" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(250, 40)
+offset_left = -100.0
+offset_top = 236.0
+offset_right = 150.0
+offset_bottom = 281.0
+scale = Vector2(0.75, 0.75)
 focus_neighbor_top = NodePath("../TeamSelect")
-focus_neighbor_bottom = NodePath("../Stats")
-theme = ExtResource("1_gex0f")
-text = "Leaderboards"
-icon = ExtResource("8_4fnyw")
-
-[node name="Stats" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-focus_neighbor_top = NodePath("../Leaderboards")
-focus_neighbor_bottom = NodePath("../Settings")
-theme = ExtResource("1_gex0f")
-text = "Stats"
-icon = ExtResource("9_rtp2a")
-
-[node name="Settings" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 40)
-layout_mode = 2
-focus_neighbor_top = NodePath("../Stats")
+focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Quit")
 theme = ExtResource("1_gex0f")
 text = "Settings"
 icon = ExtResource("5_0pvch")
 
-[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer/GridContainer"]
+[node name="Quit" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 40)
-layout_mode = 2
+custom_minimum_size = Vector2(250, 40)
+offset_left = -100.0
+offset_top = 277.0
+offset_right = 150.0
+offset_bottom = 322.0
+scale = Vector2(0.75, 0.75)
 focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Start")
 theme = ExtResource("1_gex0f")
 text = "Quit"
 icon = ExtResource("6_nw12q")
+
+[node name="Stats" type="Button" parent="MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+offset_left = 438.0
+offset_top = 270.0
+offset_right = 695.0
+offset_bottom = 315.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../Start")
+focus_neighbor_top = NodePath("../Controls")
+focus_neighbor_bottom = NodePath("../Leaderboards")
+theme = ExtResource("1_gex0f")
+text = "Stats"
+icon = ExtResource("9_rtp2a")
+
+[node name="Leaderboards" type="Button" parent="MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+offset_left = 438.0
+offset_top = 297.0
+offset_right = 695.0
+offset_bottom = 342.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../Start")
+focus_neighbor_top = NodePath("../Stats")
+focus_neighbor_bottom = NodePath("../Controls")
+theme = ExtResource("1_gex0f")
+text = "Leaderboards"
+icon = ExtResource("8_4fnyw")
+
+[node name="Controls" type="Button" parent="MenuButtons"]
+unique_name_in_owner = true
+offset_left = 438.0
+offset_top = 324.0
+offset_right = 695.0
+offset_bottom = 369.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../Start")
+focus_neighbor_top = NodePath("../Leaderboards")
+focus_neighbor_bottom = NodePath("../Stats")
+theme = ExtResource("1_gex0f")
+text = "Controls"
+icon = ExtResource("12_usipe")
 
 [node name="VersionNum" type="Label" parent="."]
 unique_name_in_owner = true
@@ -495,16 +518,3 @@ position = Vector2(572, -14)
 [node name="Goal2" parent="." instance=ExtResource("17_s56w1")]
 position = Vector2(-572, -14)
 scale = Vector2(-1, 1)
-
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/Start" to="." method="_on_start_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/Start" to="." method="_on_start_mouse_entered"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/TeamSelect" to="." method="_on_team_select_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/TeamSelect" to="." method="_on_team_select_mouse_entered"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/Leaderboards" to="." method="_on_leaderboards_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/Leaderboards" to="." method="_on_leaderboards_mouse_entered"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/Stats" to="." method="_on_stats_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/Stats" to="." method="_on_stats_mouse_entered"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/Settings" to="." method="_on_settings_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/Settings" to="." method="_on_settings_mouse_entered"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/GridContainer/Quit" to="." method="_on_quit_button_up"]
-[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/GridContainer/Quit" to="." method="_on_quit_mouse_entered"]

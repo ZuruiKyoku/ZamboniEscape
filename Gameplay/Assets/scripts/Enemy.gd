@@ -12,7 +12,7 @@ var moveToPos = Vector2(0,25)
 
 var motion = Vector2.ZERO
 var tween = null
-var tweening:bool = false
+var spinning:bool = false
 var fireTicks:int = 0
 var maxFireTicks:int = 5
 
@@ -21,9 +21,9 @@ func _ready():
 
 func _physics_process(_delta):
 	if GameManager.currentState == GameManager.GameState.Playing:
-		if (GameManager.enemyJustHit || GameManager.enemyJustHitGold) && !tweening:
+		if (GameManager.enemyJustHit || GameManager.enemyJustHitGold) && !spinning:
 			spin_zam()
-		elif tweening:
+		elif spinning:
 			pass
 		else:
 			motion = Vector2.ZERO
@@ -50,7 +50,7 @@ func spin_zam(time = 2):
 		time = 4
 	trail.visible = false
 	spin_particles.emitting = true
-	tweening = true
+	spinning = true
 	tween = create_tween()
 	tween.tween_property(self, "rotation", time*TAU, time).as_relative()
 	await tween.finished
@@ -58,7 +58,7 @@ func spin_zam(time = 2):
 		GameManager.enemyJustHit = false
 	if GameManager.enemyJustHitGold:
 		GameManager.enemyJustHitGold = false
-	tweening = false
+	spinning = false
 	spin_particles.emitting = false
 	trail.visible = true
 	

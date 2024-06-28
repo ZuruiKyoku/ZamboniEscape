@@ -1,0 +1,572 @@
+[gd_scene load_steps=44 format=3 uid="uid://basscc047sar7"]
+
+[ext_resource type="Script" path="res://Menus/team_selet.gd" id="1_aqu3a"]
+[ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_4dgfr"]
+[ext_resource type="Texture2D" uid="uid://c3bf24pfp3uhb" path="res://Gameplay/Assets/sprites/teams.png" id="3_asqof"]
+[ext_resource type="Texture2D" uid="uid://ct3hq6ttg70qq" path="res://Gameplay/Assets/sprites/Icons/home.png" id="4_1636s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdwt"]
+bg_color = Color(0, 0, 0, 0.396078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc5cq"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7p5l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hmck"]
+atlas = ExtResource("3_asqof")
+region = Rect2(0, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p0qf"]
+atlas = ExtResource("3_asqof")
+region = Rect2(19, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ee0m"]
+atlas = ExtResource("3_asqof")
+region = Rect2(38, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4tld"]
+atlas = ExtResource("3_asqof")
+region = Rect2(57, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xs8"]
+atlas = ExtResource("3_asqof")
+region = Rect2(76, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at786"]
+atlas = ExtResource("3_asqof")
+region = Rect2(95, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mn41"]
+atlas = ExtResource("3_asqof")
+region = Rect2(114, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7xys"]
+atlas = ExtResource("3_asqof")
+region = Rect2(133, 0, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4qhy"]
+atlas = ExtResource("3_asqof")
+region = Rect2(0, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw07u"]
+atlas = ExtResource("3_asqof")
+region = Rect2(19, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnopn"]
+atlas = ExtResource("3_asqof")
+region = Rect2(38, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ump4n"]
+atlas = ExtResource("3_asqof")
+region = Rect2(57, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hslv1"]
+atlas = ExtResource("3_asqof")
+region = Rect2(76, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sluf2"]
+atlas = ExtResource("3_asqof")
+region = Rect2(95, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsw84"]
+atlas = ExtResource("3_asqof")
+region = Rect2(114, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60vjy"]
+atlas = ExtResource("3_asqof")
+region = Rect2(133, 40, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyfo1"]
+atlas = ExtResource("3_asqof")
+region = Rect2(0, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvxq3"]
+atlas = ExtResource("3_asqof")
+region = Rect2(19, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ar3m"]
+atlas = ExtResource("3_asqof")
+region = Rect2(38, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nivvd"]
+atlas = ExtResource("3_asqof")
+region = Rect2(57, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh205"]
+atlas = ExtResource("3_asqof")
+region = Rect2(76, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25uvd"]
+atlas = ExtResource("3_asqof")
+region = Rect2(95, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lsdy"]
+atlas = ExtResource("3_asqof")
+region = Rect2(114, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtem3"]
+atlas = ExtResource("3_asqof")
+region = Rect2(133, 80, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr8nb"]
+atlas = ExtResource("3_asqof")
+region = Rect2(0, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r1i5"]
+atlas = ExtResource("3_asqof")
+region = Rect2(19, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40smy"]
+atlas = ExtResource("3_asqof")
+region = Rect2(38, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e384"]
+atlas = ExtResource("3_asqof")
+region = Rect2(57, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njnt5"]
+atlas = ExtResource("3_asqof")
+region = Rect2(76, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk01v"]
+atlas = ExtResource("3_asqof")
+region = Rect2(95, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usqfc"]
+atlas = ExtResource("3_asqof")
+region = Rect2(114, 120, 19, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo8k0"]
+atlas = ExtResource("3_asqof")
+region = Rect2(133, 120, 19, 40)
+
+[sub_resource type="Animation" id="Animation_xm646"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kmx48"]
+resource_name = "Spring_In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cl2jo"]
+resource_name = "Spring_Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5m21k"]
+_data = {
+"RESET": SubResource("Animation_xm646"),
+"Spring_In": SubResource("Animation_kmx48"),
+"Spring_Out": SubResource("Animation_cl2jo")
+}
+
+[node name="TeamSelet" type="CanvasLayer"]
+script = ExtResource("1_aqu3a")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+theme = ExtResource("2_4dgfr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcdwt")
+
+[node name="BackgroundPanel" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -225.0
+offset_right = 288.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
+
+[node name="SelectedTeam" type="Polygon2D" parent="Panel/BackgroundPanel"]
+unique_name_in_owner = true
+position = Vector2(35, 133)
+color = Color(0.851769, 0.851769, 0.851769, 1)
+invert_enabled = true
+invert_border = 2.0
+polygon = PackedVector2Array(0, 0, 23, 0, 23, 44, 0, 44)
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BackgroundPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_4dgfr")
+theme_override_font_sizes/font_size = 32
+text = "Team Select"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="PlayerName" type="LineEdit" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Enter Player Name"
+max_length = 15
+
+[node name="Panel4" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="TeamContainer" type="GridContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 8
+
+[node name="Team1" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_3hmck")
+stretch_mode = 3
+
+[node name="Team2" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5p0qf")
+stretch_mode = 3
+
+[node name="Team3" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_1ee0m")
+stretch_mode = 3
+
+[node name="Team4" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_e4tld")
+stretch_mode = 3
+
+[node name="Team5" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_g4xs8")
+stretch_mode = 3
+
+[node name="Team6" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_at786")
+stretch_mode = 3
+
+[node name="Team7" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_7mn41")
+stretch_mode = 3
+
+[node name="Team8" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_f7xys")
+stretch_mode = 3
+
+[node name="Team9" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_e4qhy")
+stretch_mode = 3
+
+[node name="Team10" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_gw07u")
+stretch_mode = 3
+
+[node name="Team11" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_pnopn")
+stretch_mode = 3
+
+[node name="Team12" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ump4n")
+stretch_mode = 3
+
+[node name="Team13" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_hslv1")
+stretch_mode = 3
+
+[node name="Team14" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_sluf2")
+stretch_mode = 3
+
+[node name="Team15" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_nsw84")
+stretch_mode = 3
+
+[node name="Team16" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_60vjy")
+stretch_mode = 3
+
+[node name="Team17" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_uyfo1")
+stretch_mode = 3
+
+[node name="Team18" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_bvxq3")
+stretch_mode = 3
+
+[node name="Team19" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_1ar3m")
+stretch_mode = 3
+
+[node name="Team20" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_nivvd")
+stretch_mode = 3
+
+[node name="Team21" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_hh205")
+stretch_mode = 3
+
+[node name="Team22" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_25uvd")
+stretch_mode = 3
+
+[node name="Team23" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_1lsdy")
+stretch_mode = 3
+
+[node name="Team24" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_mtem3")
+stretch_mode = 3
+
+[node name="Team25" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_kr8nb")
+stretch_mode = 3
+
+[node name="Team26" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5r1i5")
+stretch_mode = 3
+
+[node name="Team27" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_40smy")
+stretch_mode = 3
+
+[node name="Team28" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_0e384")
+stretch_mode = 3
+
+[node name="Team29" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_njnt5")
+stretch_mode = 3
+
+[node name="Team30" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_gk01v")
+stretch_mode = 3
+
+[node name="Team31" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_usqfc")
+stretch_mode = 3
+
+[node name="Team32" type="TextureButton" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/TeamContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_oo8k0")
+stretch_mode = 3
+
+[node name="Panel3" type="Panel" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7p5l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme = ExtResource("2_4dgfr")
+text = "Main Menu"
+icon = ExtResource("4_1636s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5m21k")
+}
+
+[connection signal="button_up" from="Panel/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
