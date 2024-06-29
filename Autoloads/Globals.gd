@@ -16,7 +16,7 @@ var display_manager: DisplayManager
 var game_over_scene:PackedScene = preload("res://Menus/game_over.tscn")
 var game_over = null
 
-var team_select_scene:PackedScene = preload("res://Menus/team_selet.tscn")
+var team_select_scene:PackedScene = preload("res://Menus/team_select.tscn")
 var team_select = null
 
 var leaderboards_scene:PackedScene = preload("res://Menus/leaderboards.tscn")

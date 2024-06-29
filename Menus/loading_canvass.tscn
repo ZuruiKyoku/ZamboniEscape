@@ -1410,7 +1410,6 @@ script = ExtResource("1_nyegf")
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_bottom = 720.0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
@@ -1419,7 +1418,6 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 720.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(-1, 1)
@@ -1428,7 +1426,6 @@ color = Color(0, 0.580392, 1, 1)
 [node name="ColorRect3" type="ColorRect" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_bottom = 720.0
 grow_vertical = 2
 color = Color(0.403922, 0, 0, 1)
 
@@ -1472,6 +1469,7 @@ offset_bottom = -30.0
 scale = Vector2(14, 14)
 texture = ExtResource("2_6nt2s")
 expand_mode = 1
+flip_h = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15

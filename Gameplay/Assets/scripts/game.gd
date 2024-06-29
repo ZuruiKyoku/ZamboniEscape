@@ -20,8 +20,6 @@ var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var fire_trail_timer = $FireTrailTimer
 @onready var catch_fire = $CatchFire
 
-const TOTALPU = 2
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.restart(GameManager.GameState.Playing)
@@ -32,7 +30,6 @@ func start_scene():
 	animation_player.play("GameStart")
 	await animation_player.animation_finished
 	get_tree().paused = false
-	GameManager.hasFireTrail = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

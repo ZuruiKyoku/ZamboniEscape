@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dy06fpapockt1"]
+[gd_scene load_steps=58 format=3 uid="uid://dy06fpapockt1"]
 
 [ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_gex0f"]
 [ext_resource type="Script" path="res://Menus/start_screen.gd" id="1_v6k1a"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://do6oqrccv1epw" path="res://Gameplay/Assets/sprites/Icons/leaderboardsComplex.png" id="8_4fnyw"]
 [ext_resource type="Texture2D" uid="uid://c3bf24pfp3uhb" path="res://Gameplay/Assets/sprites/teams.png" id="9_gs1rq"]
 [ext_resource type="Texture2D" uid="uid://dn0aaq25h5vmq" path="res://Gameplay/Assets/sprites/Icons/medal2.png" id="9_rtp2a"]
-[ext_resource type="Texture2D" uid="uid://dqlp10vghjw5v" path="res://Gameplay/Assets/sprites/Controls/keyboard_arrows.png" id="12_usipe"]
+[ext_resource type="Texture2D" uid="uid://dslalnlxmlcuj" path="res://Gameplay/Assets/sprites/Controls/keyboard_arrows.png" id="12_usipe"]
 [ext_resource type="PackedScene" uid="uid://0gxqvnm4wbyy" path="res://Gameplay/Assets/scenes/trail_2d.tscn" id="12_usjcq"]
 [ext_resource type="Texture2D" uid="uid://dh4ue6dpmwvnf" path="res://Gameplay/Assets/sprites/bck_main.png" id="14_813ba"]
 [ext_resource type="PackedScene" uid="uid://cy57g7rktp05k" path="res://Gameplay/Assets/scenes/goal.tscn" id="17_s56w1"]
@@ -260,6 +260,43 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h682c"]
 
+[sub_resource type="Animation" id="Animation_3iiee"]
+resource_name = "hover_start"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Start:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v4dxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Start:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qaekn"]
+_data = {
+"RESET": SubResource("Animation_v4dxw"),
+"hover_start": SubResource("Animation_3iiee")
+}
+
 [node name="StartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -320,10 +357,11 @@ position = Vector2(4, 22)
 [node name="Start" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(134, 40)
-offset_left = -144.0
-offset_top = 101.0
-offset_right = 140.0
-offset_bottom = 176.0
+offset_left = -142.0
+offset_top = 75.0
+offset_right = 142.0
+offset_bottom = 150.0
+pivot_offset = Vector2(142, 37.5)
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../TeamSelect")
@@ -518,3 +556,8 @@ position = Vector2(572, -14)
 [node name="Goal2" parent="." instance=ExtResource("17_s56w1")]
 position = Vector2(-572, -14)
 scale = Vector2(-1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qaekn")
+}

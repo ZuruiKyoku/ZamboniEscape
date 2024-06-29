@@ -2,6 +2,7 @@ class_name StartScreen extends Control
 
 @onready var menuButtons_container = $MenuButtons
 @onready var start = %Start
+@onready var animation_player = $AnimationPlayer
 
 # These 4 lines are not covered in the initial video. They've been added here just to make it easier for you
 # to differentiate versions. I had not intended to provide updates so this feature was skipped in original code.
@@ -13,6 +14,7 @@ func _ready() -> void:
 		var _mbNode = mb
 		menuButtons_container.get_node(_mbNode.get_path()).button_up.connect(handle_menu_button_up.bind(_mbNode))
 		menuButtons_container.get_node(_mbNode.get_path()).mouse_entered.connect(handle_menu_button_hover.bind(_mbNode))
+		menuButtons_container.get_node(_mbNode.get_path()).mouse_exited.connect(handle_menu_button_leave.bind(_mbNode))
 	
 	OnMain()
 	
@@ -40,6 +42,25 @@ func handle_menu_button_up(mb):
 
 func handle_menu_button_hover(mb):
 	mb.grab_focus()
+	match mb.name:
+		"Start":
+			animation_player.play("hover_start")
+		"TeamSelect":
+			pass
+		"Settings":
+			pass
+		"Quit":
+			pass
+		"Stats":
+			pass
+		"Leaderboards":
+			pass
+		"Controls":
+			pass
+	
+func handle_menu_button_leave(mb):
+	animation_player.stop()
+	pass
 
 
 func OnMain():
