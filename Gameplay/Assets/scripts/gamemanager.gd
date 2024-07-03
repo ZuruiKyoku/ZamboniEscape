@@ -31,7 +31,7 @@ func restart(state:GameState):
 	#Reset Player
 	currentState = state
 	playerScore = encryptValue(0)
-	playerPuckCount = encryptValue(1000)
+	playerPuckCount = encryptValue(0)
 	playerHealth = encryptValue(3)
 	playerGoals = encryptValue(0)
 	playerComboVal = encryptValue(0)

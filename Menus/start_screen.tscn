@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dy06fpapockt1"]
+[gd_scene load_steps=64 format=3 uid="uid://dy06fpapockt1"]
 
 [ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="1_gex0f"]
 [ext_resource type="Script" path="res://Menus/start_screen.gd" id="1_v6k1a"]
@@ -260,13 +260,48 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h682c"]
 
-[sub_resource type="Animation" id="Animation_3iiee"]
-resource_name = "hover_start"
+[sub_resource type="Animation" id="Animation_3bcn7"]
+resource_name = "Controls"
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuButtons/Start:rotation")
+tracks/0/path = NodePath("MenuButtons/Controls:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ojmdv"]
+resource_name = "Leaderboards"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Leaderboards:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gafdk"]
+resource_name = "Quit"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Quit:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -290,11 +325,157 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuButtons/TeamSelect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuButtons/Settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuButtons/Quit:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuButtons/Stats:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuButtons/Leaderboards:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuButtons/Controls:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4shj7"]
+resource_name = "Settings"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Settings:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3iiee"]
+resource_name = "hover_start"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Start:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r7yxl"]
+resource_name = "Stats"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/Stats:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8tl4v"]
+resource_name = "TeamSelect"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuButtons/TeamSelect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qaekn"]
 _data = {
+"Controls": SubResource("Animation_3bcn7"),
+"Leaderboards": SubResource("Animation_ojmdv"),
+"Quit": SubResource("Animation_gafdk"),
 "RESET": SubResource("Animation_v4dxw"),
-"hover_start": SubResource("Animation_3iiee")
+"Settings": SubResource("Animation_4shj7"),
+"Start": SubResource("Animation_3iiee"),
+"Stats": SubResource("Animation_r7yxl"),
+"TeamSelect": SubResource("Animation_8tl4v")
 }
 
 [node name="StartScreen" type="Control"]
@@ -372,11 +553,19 @@ icon = ExtResource("4_hawco")
 [node name="TeamSelect" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
-offset_left = -100.0
-offset_top = 195.0
-offset_right = 150.0
-offset_bottom = 240.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -765.0
+offset_top = -174.0
+offset_right = -515.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(125, 22.5)
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Settings")
@@ -387,11 +576,19 @@ icon = ExtResource("5_boa5y")
 [node name="Settings" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
-offset_left = -100.0
-offset_top = 236.0
-offset_right = 150.0
-offset_bottom = 281.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -765.0
+offset_top = -132.0
+offset_right = -515.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(125, 22.5)
 focus_neighbor_top = NodePath("../TeamSelect")
 focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -402,11 +599,19 @@ icon = ExtResource("5_0pvch")
 [node name="Quit" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
-offset_left = -100.0
-offset_top = 277.0
-offset_right = 150.0
-offset_bottom = 322.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -765.0
+offset_top = -90.0
+offset_right = -515.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(125, 22.5)
 focus_neighbor_top = NodePath("../Settings")
 focus_neighbor_right = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Start")
@@ -417,11 +622,19 @@ icon = ExtResource("6_nw12q")
 [node name="Stats" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
-offset_left = 438.0
-offset_top = 270.0
-offset_right = 695.0
-offset_bottom = 315.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -102.0
+offset_right = -5.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(137.5, 22.5)
 focus_neighbor_left = NodePath("../Start")
 focus_neighbor_top = NodePath("../Controls")
 focus_neighbor_bottom = NodePath("../Leaderboards")
@@ -432,11 +645,19 @@ icon = ExtResource("9_rtp2a")
 [node name="Leaderboards" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
-offset_left = 438.0
-offset_top = 297.0
-offset_right = 695.0
-offset_bottom = 342.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -74.0
+offset_right = -5.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(137.5, 22.5)
 focus_neighbor_left = NodePath("../Start")
 focus_neighbor_top = NodePath("../Stats")
 focus_neighbor_bottom = NodePath("../Controls")
@@ -446,11 +667,19 @@ icon = ExtResource("8_4fnyw")
 
 [node name="Controls" type="Button" parent="MenuButtons"]
 unique_name_in_owner = true
-offset_left = 438.0
-offset_top = 324.0
-offset_right = 695.0
-offset_bottom = 369.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -46.0
+offset_right = -5.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(137.5, 22.5)
 focus_neighbor_left = NodePath("../Start")
 focus_neighbor_top = NodePath("../Leaderboards")
 focus_neighbor_bottom = NodePath("../Stats")

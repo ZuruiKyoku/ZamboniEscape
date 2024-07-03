@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="Zamboni Escape"
-config/version="B 0.4"
+config/version="B 0.5"
 run/main_scene="res://Splash/godot_splash_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://Splash/original-large-blue.png"
 config/icon="res://icon.svg"
+config/windows_native_icon="res://ZE.ico"
 boot_splash/minimum_display_time=3000
 
 [autoload]
