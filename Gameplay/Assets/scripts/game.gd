@@ -1,16 +1,18 @@
 extends Node2D
 
+const POWERUP = preload("res://Gameplay/Assets/scenes/powerup.tscn")
+var PUCK = preload("res://Gameplay/Assets/scenes/puck.tscn")
+var PICKUPPUCK = preload("res://Gameplay/Assets/scenes/pickup_puck.tscn")
+var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
+
 @onready var player = %Player
 @onready var enemy = %Enemy
 @onready var puck_count_label = %PuckCountLabel
 @onready var score_label = %ScoreLabel
 @onready var increase_score = $IncreaseScore
-var PUCK = preload("res://Gameplay/Assets/scenes/puck.tscn")
-var PICKUPPUCK = preload("res://Gameplay/Assets/scenes/pickup_puck.tscn")
 @onready var spawn_collider = $SpawnArea/SpawnCollider.shape.extents
 @onready var puck_spawner = $PuckSpawner
 @onready var shoot = $Shoot
-var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var life_container = %LifeContainer
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var puck_container = $PuckContainer
@@ -133,38 +135,41 @@ func updateHealthBar():
 		life_container.get_node(_wNode).self_modulate = Color.WHITE
 
 func givePowerup():
+	var tmp_PU = POWERUP.instantiate()
 	GameManager.givePowerup = false
 	var values = []
 	
 	if GameManager.decryptValue(GameManager.playerHealth) < 5:
-		values.append("health")
+		values.append("Health")
 	if !GameManager.hasSpeedBoost:
-		values.append("boost")
+		values.append("Boost")
 	if !GameManager.hasGoldenPuck:
-		values.append("gold")
+		values.append("Gold")
 	if !GameManager.hasFireTrail:
-		values.append("fire")
+		values.append("Fire")
 	
 	if values.size() > 0:
 		var selectedValue = values.pick_random()
 		match selectedValue:
-			"health":
+			"Health":
 				GameManager.increaseHealth()
 				Globals.user_prefs["ExtraLivesAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["ExtraLivesAcquired"])
-			"boost":
+			"Boost":
 				GameManager.hasSpeedBoost = true
 				speed_boost.visible = true
 				Globals.user_prefs["SpeedBoostsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["SpeedBoostsAcquired"])
-			"gold":
+			"Gold":
 				GameManager.hasGoldenPuck = true
 				gold_puck.visible = true
 				Globals.user_prefs["GoldenPucksAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["GoldenPucksAcquired"])
-			"fire":
+			"Fire":
 				GameManager.hasFireTrail = true
 				fire_trail.visible = true
 				Globals.user_prefs["FlameTrailsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["FlameTrailsAcquired"])
 		
 		Globals.user_prefs["TotalPowerupsAcquired"] = Globals.user_prefs.increaseValue(Globals.user_prefs["TotalPowerupsAcquired"])
+		tmp_PU.SetPowerup(selectedValue)
+		player.add_child(tmp_PU)
 	else:
 		GameManager.increaseScore()
 		GameManager.increaseScore()

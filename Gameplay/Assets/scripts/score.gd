@@ -4,10 +4,8 @@ extends Node2D
 var side = ""
 
 func _ready():
-	if side == "NetRight":
-		animation_player.play("GoalRight")
-	elif side == "NetLeft":
-		animation_player.play("GoalLeft")
+	if animation_player.has_animation(side):
+		animation_player.play(side)
 		
 func SetSide(tempSide):
 	side = tempSide
