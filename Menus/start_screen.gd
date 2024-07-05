@@ -56,7 +56,7 @@ func handle_focus_enter(mb:Button):
 	if animation_player.has_animation(mb.name):
 		animation_player.play(mb.name)	
 
-func handle_focus_exit(mb:Button):
+func handle_focus_exit(_mb:Button):
 	animation_player.stop()
 
 func OnMain():
