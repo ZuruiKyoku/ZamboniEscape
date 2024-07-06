@@ -16,9 +16,9 @@ var shotPart = preload("res://Gameplay/Assets/scenes/shot_part.tscn")
 @onready var life_container = %LifeContainer
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var puck_container = $PuckContainer
-@onready var speed_boost = $SpeedBoost
-@onready var gold_puck = $GoldPuck
-@onready var fire_trail = $FireTrail
+@onready var speed_boost = %SpeedBoost
+@onready var gold_puck = %GoldPuck
+@onready var fire_trail = %FireTrail
 @onready var fire_trail_timer = $FireTrailTimer
 @onready var catch_fire = $CatchFire
 

@@ -361,6 +361,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnArea" type="Area2D" parent="."]
+visible = false
 
 [node name="SpawnCollider" type="CollisionShape2D" parent="SpawnArea"]
 position = Vector2(0.5, 26.5)
@@ -373,37 +374,6 @@ autostart = true
 
 [node name="CenterIce" parent="." instance=ExtResource("7_prd5j")]
 position = Vector2(4, 22)
-
-[node name="LifeContainer" type="GridContainer" parent="."]
-unique_name_in_owner = true
-offset_left = -637.0
-offset_top = -357.0
-offset_right = -557.0
-offset_bottom = -325.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="HP1" type="TextureRect" parent="LifeContainer"]
-layout_mode = 2
-texture = ExtResource("7_5h3jx")
-
-[node name="HP2" type="TextureRect" parent="LifeContainer"]
-layout_mode = 2
-texture = ExtResource("7_5h3jx")
-
-[node name="HP3" type="TextureRect" parent="LifeContainer"]
-layout_mode = 2
-texture = ExtResource("7_5h3jx")
-
-[node name="HP4" type="TextureRect" parent="LifeContainer"]
-layout_mode = 2
-texture = ExtResource("7_5h3jx")
-
-[node name="HP5" type="TextureRect" parent="LifeContainer"]
-layout_mode = 2
-texture = ExtResource("7_5h3jx")
 
 [node name="NetRight" parent="." instance=ExtResource("8_5etk1")]
 position = Vector2(572, -15)
@@ -466,36 +436,6 @@ bus = &"VoiceOver"
 stream = ExtResource("11_347yi")
 bus = &"VoiceOver"
 
-[node name="SpeedBoost" type="TextureRect" parent="."]
-visible = false
-offset_left = 484.0
-offset_top = -360.0
-offset_right = 534.0
-offset_bottom = -310.0
-texture = ExtResource("12_8a37s")
-
-[node name="GoldPuck" type="TextureRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 0, 1)
-offset_left = 545.0
-offset_top = -353.0
-offset_right = 595.0
-offset_bottom = -303.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("13_3dl8w")
-
-[node name="FireTrail" type="TextureRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 0, 1)
-offset_left = 594.0
-offset_top = -353.0
-offset_right = 644.0
-offset_bottom = -303.0
-scale = Vector2(0.75, 0.75)
-texture = SubResource("AtlasTexture_rbksm")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="PuckContainer" type="Node2D" parent="."]
 
 [node name="FireTrailTimer" type="Timer" parent="."]
@@ -506,6 +446,80 @@ one_shot = true
 stream = ExtResource("15_xipm6")
 volume_db = 5.0
 bus = &"SFX"
+
+[node name="IceIcons" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.294118)
+
+[node name="LifeContainer" type="GridContainer" parent="IceIcons"]
+unique_name_in_owner = true
+offset_left = -275.0
+offset_top = 150.0
+offset_right = -225.0
+offset_bottom = 246.0
+
+[node name="HP1" type="TextureRect" parent="IceIcons/LifeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5h3jx")
+stretch_mode = 5
+
+[node name="HP2" type="TextureRect" parent="IceIcons/LifeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5h3jx")
+stretch_mode = 5
+
+[node name="HP3" type="TextureRect" parent="IceIcons/LifeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5h3jx")
+stretch_mode = 5
+
+[node name="HP4" type="TextureRect" parent="IceIcons/LifeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5h3jx")
+stretch_mode = 5
+
+[node name="HP5" type="TextureRect" parent="IceIcons/LifeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_5h3jx")
+stretch_mode = 5
+
+[node name="SpeedBoost" type="TextureRect" parent="IceIcons"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 250.0
+offset_top = 175.0
+offset_right = 300.0
+offset_bottom = 225.0
+texture = ExtResource("12_8a37s")
+
+[node name="GoldPuck" type="TextureRect" parent="IceIcons"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 250.0
+offset_top = -175.0
+offset_right = 300.0
+offset_bottom = -125.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("13_3dl8w")
+
+[node name="FireTrail" type="TextureRect" parent="IceIcons"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 0, 1)
+offset_left = -275.0
+offset_top = -175.0
+offset_right = -225.0
+offset_bottom = -125.0
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_rbksm")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="timeout" from="IncreaseScore" to="." method="_on_increase_score_timeout"]
 [connection signal="timeout" from="PuckSpawner" to="." method="_on_puck_spawner_timeout"]

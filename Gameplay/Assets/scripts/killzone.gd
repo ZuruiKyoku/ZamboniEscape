@@ -23,6 +23,9 @@ func checkPlayer():
 		if GameManager.playerIsAlive == false:
 			killPlayer()
 		else:
+			player.animation_player.play("Hit")
+			player.bouncing = true
+			player.direction  = (global_position - player.position).normalized()
 			enter_timer.start(1)
 	
 func killPlayer():
