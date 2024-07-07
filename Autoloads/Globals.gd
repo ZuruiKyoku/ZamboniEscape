@@ -25,7 +25,7 @@ var leaderboards = null
 var stats_scene:PackedScene = preload("res://Menus/stats.tscn")
 var stats = null
 
-var controls_scene:PackedScene = preload("res://Menus/controls.tscn")
+var controls_scene:PackedScene = preload("res://Menus/how_to.tscn")
 var controls = null
 
 func _ready():

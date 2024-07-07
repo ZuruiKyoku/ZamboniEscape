@@ -77,7 +77,7 @@ _data = {
 }
 
 [node name="SettingsMenu" type="CanvasLayer"]
-process_mode = 2
+process_mode = 3
 script = ExtResource("1_pkcrv")
 
 [node name="Panel" type="Panel" parent="."]

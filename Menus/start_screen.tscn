@@ -684,7 +684,7 @@ focus_neighbor_left = NodePath("../Start")
 focus_neighbor_top = NodePath("../Leaderboards")
 focus_neighbor_bottom = NodePath("../Stats")
 theme = ExtResource("1_gex0f")
-text = "Controls"
+text = "How To Play"
 icon = ExtResource("12_usipe")
 
 [node name="VersionNum" type="Label" parent="."]

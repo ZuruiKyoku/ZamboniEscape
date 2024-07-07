@@ -142,7 +142,8 @@ func _on_language_dropdown_item_selected(_index):
 func _notification(what):
 	match what:
 		NOTIFICATION_ENTER_TREE:
-			get_tree().paused = true
+			if GameManager.currentState != GameManager.GameState.MainMenu:
+				get_tree().paused = true
 		NOTIFICATION_EXIT_TREE:
 			Globals.user_prefs.save()
 			get_tree().paused = false
