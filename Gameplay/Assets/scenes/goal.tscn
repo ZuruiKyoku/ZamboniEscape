@@ -6,6 +6,7 @@
 size = Vector2(54, 100)
 
 [node name="Goal" type="Node2D"]
+position = Vector2(25, 10)
 script = ExtResource("1_at6ar")
 
 [node name="GoalLine" type="Area2D" parent="."]

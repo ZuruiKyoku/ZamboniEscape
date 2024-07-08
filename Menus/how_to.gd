@@ -1,7 +1,7 @@
 class_name Controls extends CanvasLayer
 
 @onready var animation_player = $AnimationPlayer
-@onready var player = $Panel/HBoxContainer/HowToPlay/GridContainer/Player
+@onready var player_texture = %PlayerTexture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +24,4 @@ func GetPlayerTexCord():
 	var x:float = (19 * floor(team % 8))
 	var y:float = (40 * floor(tempTeam / 8))
 	#Position then Size
-	player.texture.region = Rect2(x,y,19,40)
+	player_texture.texture.region = Rect2(x,y,19,40)

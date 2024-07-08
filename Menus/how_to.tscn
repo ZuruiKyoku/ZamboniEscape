@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://basscc047sar7"]
+[gd_scene load_steps=26 format=3 uid="uid://basscc047sar7"]
 
 [ext_resource type="Script" path="res://Menus/how_to.gd" id="1_5rcih"]
 [ext_resource type="Theme" uid="uid://ddek6g823vyyv" path="res://Theme.tres" id="2_si6mv"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://do5p6em3cowp7" path="res://Gameplay/Assets/sprites/Controls/mouse_move.png" id="4_31nm5"]
 [ext_resource type="Texture2D" uid="uid://bidhr2murs5k8" path="res://Gameplay/Assets/sprites/spr_zam.png" id="4_v7s58"]
 [ext_resource type="Texture2D" uid="uid://befwa1futlxn0" path="res://Gameplay/Assets/sprites/Controls/mouse_left.png" id="5_eiwcg"]
+[ext_resource type="Texture2D" uid="uid://by7w2a7oomv5l" path="res://Gameplay/Assets/sprites/puck_white_2.png" id="5_hkvss"]
 [ext_resource type="Texture2D" uid="uid://ms0fkl1wa4sg" path="res://Gameplay/Assets/sprites/Controls/mouse_right.png" id="6_2myc1"]
+[ext_resource type="Texture2D" uid="uid://cjeb55x7nf6u5" path="res://Gameplay/Assets/sprites/Fiyah.png" id="6_lnvjo"]
+[ext_resource type="Texture2D" uid="uid://dgfsxrcafk4xi" path="res://Gameplay/Assets/sprites/Icons/fastForward.png" id="7_lhrhj"]
 [ext_resource type="Texture2D" uid="uid://bjukka0r6wlh" path="res://Gameplay/Assets/sprites/Controls/keyboard_escape.png" id="7_p05fa"]
 [ext_resource type="Texture2D" uid="uid://bpoo3lsx8br3a" path="res://Gameplay/Assets/sprites/Controls/keyboard_f.png" id="8_q2n51"]
 [ext_resource type="Texture2D" uid="uid://dc68a5glxqnfc" path="res://Gameplay/Assets/sprites/Controls/keyboard_shift.png" id="9_8ra6c"]
@@ -32,6 +35,15 @@ corner_radius_bottom_left = 4
 atlas = ExtResource("3_ehjwy")
 region = Rect2(0, 0, 19, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iqpb"]
+atlas = ExtResource("6_lnvjo")
+region = Rect2(0, 0, 51, 72)
+
+[sub_resource type="Gradient" id="Gradient_0dvox"]
+offsets = PackedFloat32Array(0, 0.3, 0.6, 1)
+colors = PackedColorArray(1, 0.792157, 0, 1, 1, 0.588235, 0, 1, 1, 0.32549, 0, 1, 0.133196, 0.133196, 0.133196, 1)
+metadata/_snap_enabled = true
+
 [sub_resource type="Animation" id="Animation_xm646"]
 length = 0.001
 tracks/0/type = "value"
@@ -41,6 +53,42 @@ tracks/0/path = NodePath("Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerTexture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ZamboniTexture:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PuckTexture:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -79,9 +127,52 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_dhko3"]
+resource_name = "SpinPlayer"
+length = 9.6
+loop_mode = 1
+step = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerTexture:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZamboniTexture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PuckTexture:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 8, 8.8, 9.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5m21k"]
 _data = {
 "RESET": SubResource("Animation_xm646"),
+"Spinny": SubResource("Animation_dhko3"),
 "Spring_In": SubResource("Animation_kmx48"),
 "Spring_Out": SubResource("Animation_cl2jo")
 }
@@ -109,7 +200,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HowToPlay" type="Panel" parent="Panel/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.701961)
+self_modulate = Color(1, 1, 1, 0.901961)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
@@ -145,57 +236,264 @@ theme_override_font_sizes/font_size = 32
 text = "Now you've done it. You've gotten on the refs bad side for the last time and now he is out to get you! Run from the ref who is chasing you with a Zamboni and try to survive as long as you can!"
 autowrap_mode = 2
 
+[node name="Spacer" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
 [node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="Player" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Player" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerTexture2" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Player"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_bs83w")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Player"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -25.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "This is you"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Enemy" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Enemy" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Enemy"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("4_v7s58")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Enemy"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -25.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "This is the ref"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Puck" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Puck"]
+self_modulate = Color(0.133333, 0.133333, 0.133333, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Puck"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Collect pucks when they spawn"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Goal" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Goal"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Line2D" type="Line2D" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Goal/Panel"]
+points = PackedVector2Array(-12, 0, -12, 80)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Goal/Panel"]
+points = PackedVector2Array(-12, 2, 13, 2, 28, 25, 28, 56, 13, 78, -12, 78)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Goal"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Shoot those pucks into the goal"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer2" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Spacer3" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Spacer4" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Spacer5" type="Panel" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Powerup" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup/HBoxContainer"]
+self_modulate = Color(0.133333, 0.133333, 0.133333, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup/HBoxContainer"]
+self_modulate = Color(0.133333, 0.133333, 0.133333, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Powerup"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score 5 goals to get a random powerup"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Gold" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Gold"]
+self_modulate = Color(0.854902, 0.647059, 0.12549, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Gold"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Speed Boost:
+This will boost you across the rink at great speeds"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Fire" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_5iqpb")
+stretch_mode = 5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer"]
+show_behind_parent = true
+position = Vector2(117, 67)
+amount = 25
+lifetime = 0.75
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_0dvox")
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Flame trail:
+When ref goes through them he will catch fire for a time"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Speed" type="VBoxContainer" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Speed"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("7_lhrhj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Speed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Speed Boost:
+This will boost you across the rink at great speeds"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Controls" type="Panel" parent="Panel/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.701961)
+self_modulate = Color(1, 1, 1, 0.901961)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
@@ -380,28 +678,80 @@ text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(100, 2.08165e-12)
+[node name="BottomBar" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.901961)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -97.0
-offset_top = -70.0
-offset_right = 97.0
-offset_bottom = -25.0
+offset_top = -78.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qc5cq")
+
+[node name="MainMenu" type="Button" parent="Panel/BottomBar"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -22.5
+offset_right = 97.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_si6mv")
 text = "Main Menu"
 icon = ExtResource("10_64wlk")
+
+[node name="PlayerTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = 25.0
+offset_top = 199.0
+offset_right = 169.0
+offset_bottom = 333.0
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(72, 67)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_bs83w")
+stretch_mode = 5
+
+[node name="ZamboniTexture" type="TextureRect" parent="."]
+offset_left = 173.0
+offset_top = 199.0
+offset_right = 317.0
+offset_bottom = 333.0
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(72, 67)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_v7s58")
+stretch_mode = 5
+
+[node name="PuckTexture" type="TextureRect" parent="."]
+self_modulate = Color(0.133333, 0.133333, 0.133333, 1)
+offset_left = 321.0
+offset_top = 199.0
+offset_right = 465.0
+offset_bottom = 279.0
+pivot_offset = Vector2(72, 40)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_hkvss")
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5m21k")
 }
+autoplay = "Spinny"
 
-[connection signal="button_up" from="Panel/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Panel/BottomBar/MainMenu" to="." method="_on_main_menu_button_up"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
