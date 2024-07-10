@@ -25,3 +25,6 @@ func GetPlayerTexCord():
 	var y:float = (40 * floor(tempTeam / 8))
 	#Position then Size
 	player_texture.texture.region = Rect2(x,y,19,40)
+
+func startSpin():
+	animation_player.play("Spinny")

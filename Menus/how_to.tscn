@@ -61,7 +61,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerTexture:rotation")
+tracks/1/path = NodePath("Panel/PlayerTexture:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,7 +73,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ZamboniTexture:rotation")
+tracks/2/path = NodePath("Panel/ZamboniTexture:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -85,7 +85,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PuckTexture:scale")
+tracks/3/path = NodePath("Panel/PuckTexture:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -93,6 +93,60 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer/CPUParticles2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dhko3"]
+resource_name = "SpinPlayer"
+length = 9.6
+loop_mode = 1
+step = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PlayerTexture:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/ZamboniTexture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/PuckTexture:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 8, 8.8, 9.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_kmx48"]
@@ -110,6 +164,32 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"startSpin"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer/CPUParticles2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_cl2jo"]
 resource_name = "Spring_Out"
@@ -126,47 +206,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_dhko3"]
-resource_name = "SpinPlayer"
-length = 9.6
-loop_mode = 1
-step = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerTexture:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 9.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ZamboniTexture:rotation")
+tracks/1/path = NodePath("Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer/CPUParticles2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 9.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PuckTexture:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 8, 8.8, 9.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5m21k"]
@@ -446,6 +496,7 @@ texture = SubResource("AtlasTexture_5iqpb")
 stretch_mode = 5
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Panel/HBoxContainer/HowToPlay/MarginContainer/VBoxContainer/GridContainer/Fire/HBoxContainer"]
+visible = false
 show_behind_parent = true
 position = Vector2(117, 67)
 amount = 25
@@ -710,12 +761,13 @@ theme = ExtResource("2_si6mv")
 text = "Main Menu"
 icon = ExtResource("10_64wlk")
 
-[node name="PlayerTexture" type="TextureRect" parent="."]
+[node name="PlayerTexture" type="TextureRect" parent="Panel"]
 unique_name_in_owner = true
-offset_left = 25.0
-offset_top = 199.0
-offset_right = 169.0
-offset_bottom = 333.0
+layout_mode = 0
+offset_left = 32.2
+offset_top = 205.7
+offset_right = 176.2
+offset_bottom = 339.7
 scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(72, 67)
 size_flags_horizontal = 3
@@ -723,11 +775,12 @@ size_flags_vertical = 3
 texture = SubResource("AtlasTexture_bs83w")
 stretch_mode = 5
 
-[node name="ZamboniTexture" type="TextureRect" parent="."]
-offset_left = 173.0
-offset_top = 199.0
-offset_right = 317.0
-offset_bottom = 333.0
+[node name="ZamboniTexture" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 180.2
+offset_top = 205.7
+offset_right = 324.2
+offset_bottom = 339.7
 scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(72, 67)
 size_flags_horizontal = 3
@@ -735,8 +788,9 @@ size_flags_vertical = 3
 texture = ExtResource("4_v7s58")
 stretch_mode = 5
 
-[node name="PuckTexture" type="TextureRect" parent="."]
+[node name="PuckTexture" type="TextureRect" parent="Panel"]
 self_modulate = Color(0.133333, 0.133333, 0.133333, 1)
+layout_mode = 0
 offset_left = 321.0
 offset_top = 199.0
 offset_right = 465.0
@@ -751,7 +805,6 @@ stretch_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_5m21k")
 }
-autoplay = "Spinny"
 
 [connection signal="button_up" from="Panel/BottomBar/MainMenu" to="." method="_on_main_menu_button_up"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

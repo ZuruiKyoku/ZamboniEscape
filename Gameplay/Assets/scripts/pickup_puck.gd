@@ -3,6 +3,9 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 var player
 
+func _ready():
+	pass
+
 func _on_timer_timeout():
 	queue_free()
 
