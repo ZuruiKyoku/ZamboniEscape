@@ -23,7 +23,7 @@ GDScript gameplay/controllers, menu scenes, save resources, global managers and 
 - Local working branch at audit: `main`; code snapshot `2a91d2c7f0520efc828403c9f9bf25c476c251ba`.
 - Pre-existing working-tree changes: **0** entries. These were not staged, committed or discarded by continuity setup.
 - Live GitHub default: `main` at `2a91d2c7f0520efc828403c9f9bf25c476c251ba`.
-- Documentation is prepared on `docs/project-continuity-2026-10-12` from that default. Feature-branch implementation described below is not thereby merged.
+- Continuity documentation was prepared from the reviewed `main` baseline. This documentation-only delivery includes no feature-branch implementation.
 - Repository: https://github.com/ZuruiKyoku/ZamboniEscape (public).
 
 ## Completed work
@@ -70,8 +70,8 @@ No directly associated local coding transcript was found in the reviewed invento
 
 ## Session handoff
 
-- Last task: establish PROJECT_STATE.md and additive agent instructions from available project evidence.
+- Last task (2026-10-12): deliver the continuity documentation to the existing remote default branch `main`, as explicitly authorized by the user. Application changes and feature acceptance remain separate.
 - Documentation scope: preserve all pre-existing code, assets, branches, indexes and acceptance gates. A documentation branch does not back up uncommitted application work.
-- Publication state: consult the actual Git log/remote branch; do not assume a prepared branch was pushed or merged. The continuity report records the verified publication result.
+- Publication evidence: original documentation commit `13c7a29601879844d47a6791a42af62577bd10a7`; delivery targets `main` by normal fast-forward push. Confirm inclusion with Git ancestry; the external continuity report records the post-push remote SHA. Original local checkouts are not pulled or switched during delivery.
 - Next owner: follow Next steps above, fill historical gaps, and replace stale status with dated evidence after meaningful work.
 - Archive readiness: incomplete history and any local-only implementation still need reconciliation; do not infer that archiving all project chats is lossless.
